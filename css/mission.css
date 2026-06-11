@@ -1,0 +1,236 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    padding: 32px;
+    background: url(../img/background/Phòng\ buổi\ chiều.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.box {
+    position: relative;
+    left: 70%;
+    top: 30%;
+    width: 340px;
+    padding: 20px 18px;
+    border-radius: 22px;
+    background: linear-gradient(180deg,
+            rgba(12, 25, 70, .95),
+            rgba(4, 12, 40, .95));
+    box-shadow:
+        0 0 25px rgba(94, 125, 255, .7),
+        0 0 60px rgba(119, 66, 255, .4),
+        inset 0 0 20px rgba(120, 180, 255, .15);
+    overflow: hidden;
+}
+
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.box>* {
+    position: relative;
+    z-index: 2;
+}
+
+
+
+.head-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 6px 4px;
+}
+
+.title {
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #dff4ff;
+    font-size: 18px;
+    text-shadow:
+        0 0 25px rgba(94, 125, 255, .7),
+        0 0 60px rgba(119, 66, 255, .4),
+        inset 0 0 20px rgba(120, 180, 255, .15);
+}
+
+.head-box svg {
+    opacity: 0.9;
+    fill: rgba(223, 244, 255, 0.9);
+    box-shadow:
+        0 0 25px rgba(94, 125, 255, .7),
+        0 0 60px rgba(119, 66, 255, .4),
+        inset 0 0 20px rgba(120, 180, 255, .15);
+}
+
+.mission-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.mission-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 8px;
+    border-radius: 10px;
+    
+    border-top: 3px solid rgba(255, 255, 255, 0.03);
+}
+
+
+.icon {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 50%;
+    background: rgba(10, 25, 80, .9);
+    box-shadow:
+        0 0 10px rgba(120, 180, 255, .8),
+        0 0 20px rgba(120, 180, 255, .5),
+        inset 0 0 15px rgba(120, 180, 255, .3);
+}
+
+.mission-card:nth-child(1) .icon {
+    box-shadow: 0 6px 18px rgba(90, 220, 255, 0.06), 0 0 18px rgba(90, 220, 255, 0.12) inset;
+}
+
+.mission-card:nth-child(2) .icon {
+    box-shadow: 0 6px 18px rgba(150, 110, 255, 0.06), 0 0 18px rgba(150, 110, 255, 0.12) inset;
+}
+
+.mission-card:nth-child(3) .icon {
+    box-shadow: 0 6px 18px rgba(100, 220, 180, 0.06), 0 0 18px rgba(100, 220, 180, 0.12) inset;
+}
+
+.icon svg {
+    width: 20px;
+    height: 20px;
+    fill: #85bbf7;
+    position: relative;
+    z-index: 3;
+}
+
+.icon::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg,
+            #5df6ff,
+            transparent,
+            transparent,
+            #5df6ff);
+    animation: borderRotate 2s linear infinite;
+    z-index: -2;
+}
+
+.icon::after {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    background: rgba(8, 18, 60, .95);
+    z-index: -1;
+}
+
+@keyframes borderRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.text {
+    flex: 1 1 auto;
+}
+
+.info {
+    color: #dfefff;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.index {
+    font-size: 12px;
+    color: #bfe8ff;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.index img {
+    width: 14px;
+    height: 14px;
+}
+
+.frequency {
+    min-width: 46px;
+    text-align: right;
+    color: #9fe6ff;
+    font-weight: 600;
+}
+
+.tick {
+    color: #00d30b;
+}
+
+.watch-all {
+    margin-top: 14px;
+    align-self: stretch;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    color: #cfeeff;
+    padding: 10px 12px;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+    cursor: pointer;
+}
+
+.watch-all::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #3ee7ff, #7a39ff);
+    filter: blur(8px);
+    opacity: 0.12;
+    z-index: -1;
+}
+
+.watch-all:hover {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 400px) {
+    .box {
+        width: 100%;
+        padding: 14px;
+    }
+}
