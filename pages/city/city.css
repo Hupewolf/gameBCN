@@ -1,0 +1,177 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    background-color: #1a1a2e;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.map {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: url(../../img/background/backgroundCity.png);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.blockMarker {
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    transform: translate(-25px, -100%);
+    z-index: 10;
+}
+.location-marker {
+    width: 120px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    position: relative;
+    cursor: pointer;
+}
+.marker-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+.icon-circle {
+    width: 47px;
+    height: 47px;
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: -3px;
+    bottom: 3px;
+    background: rgba(15, 25, 60, 0.9);
+    border: 2px solid rgba(150, 180, 255, 0.9);
+    box-shadow: 0 0 15px rgba(130, 160, 255, 0.7);
+    color: white;
+    z-index: 100;
+}
+.icon-circle .icon-maker {
+    color: #e0e7ff;
+    font-size: 20px;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+.marker-text {
+    width: 90px;
+    height: auto;
+    padding: 6px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    background: rgb(15 22 51 / 72%);
+    border: 1px solid rgba(130, 160, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(185, 232, 255, 0.427);
+    color: #f1f5f9;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+.marker-pointer {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 12px solid rgb(162, 216, 255);
+    margin-top: -5px;
+    position: absolute;
+    left:  13px;
+    bottom: -7px;
+    z-index: 0;
+    filter: drop-shadow(0 3px 5px rgba(130, 160, 255, 0.5));
+}
+.library {
+    top: 30%;
+    left: 24%;
+}
+.people {
+    top: 50%;
+    left: 33%;
+}
+.center {
+    top: 61%;
+    left: 53%;
+}
+.school {
+    top: 29%;
+    left: 55%;
+}
+.event {
+    top: 59%;
+    left: 84%;
+}
+.shop {
+    top: 70%;
+    left: 69%;
+}
+.nav-arrow {
+    display: none;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(30, 40, 80, 0.8);
+    color: white;
+    border: 2px solid rgba(130, 160, 255, 0.5);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+}
+.nav-arrow:hover {
+    background: rgba(15, 25, 60, 0.95);
+    border-color: rgba(130, 160, 255, 0.9);
+    box-shadow: 0 0 15px rgba(130, 160, 255, 0.7);
+}
+.left-arrow {
+    left: 20px;
+}
+.right-arrow {
+    right: 20px;
+}
+
+.nav-arrow.hidden {
+    display: none !important;
+}
+
+@media screen and (max-width: 1000px) {
+    body {
+        justify-content: flex-start;
+        overflow-x: auto;
+    }
+    .map {
+        width: 200vh;
+        height: 100vh;
+        max-width: none;
+        flex-shrink: 0;
+    }
+    .nav-arrow {
+        display: flex;
+    }
+}
