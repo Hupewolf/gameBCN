@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./room.css">
+    <link rel="stylesheet" href="./mission.css">
+    <link rel="stylesheet" href="../../component/header/header.css">
+    <link rel="stylesheet" href="../../component/navButton/navbutton.css">
+    <title>My Room</title>
+</head>
+
+<body>
+    <header id="game-header"></header>
+    <div class="main">
+        <div class="box collapsed" id="mission-box">
+            <div class="head-box">
+                <div class="title">NHIỆM VỤ HÔM NAY</div>
+                <div class="g-icon calender-icon" id="mission-today"></div>
+            </div>
+            <div class="mission-list">
+                <div class="mission-card">
+                    <div class="icon">
+                        <div class="g-icon gift-icon"></div>
+                    </div>
+                    <div class="text">
+                        <div class="info">Đăng nhập hàng ngày</div>
+                        <div class="index"><img src="../../img/icon/star.png"> x100</div>
+                    </div>
+                    <div class="frequency tick">1/1 <img src="../../img/icon/check.png"></div>
+                </div>
+                <div class="mission-card">
+                    <div class="icon">
+                        <div class="g-icon target-icon"></div>
+                    </div>
+                    <div class="text">
+                        <div class="info">Hoàn thành 3 nhiệm vụ</div>
+                        <div class="index"><img src="../../img/icon/star.png"> x200</div>
+                    </div>
+                    <div class="frequency">2/3</div>
+                </div>
+                <div class="mission-card">
+                    <div class="icon">
+                        <div class="g-icon book-icon"></div>
+                    </div>
+                    <div class="text">
+                        <div class="info">Học tập 30 phút</div>
+                        <div class="index"><img src="../../img/icon/flash.png"> x50</div>
+                    </div>
+                    <div class="frequency">18/30</div>
+                </div>
+            </div>
+            <button class="watch-all">XEM TẤT CẢ</button>
+        </div>
+    </div>
+    <footer>
+        <div class="game-menu">
+            <button class="game-menu-btn">
+                <div class="g-icon bag-icon"></div>
+                <div class="game-menu-text">Túi đồ</div>
+            </button>
+            <button class="game-menu-btn">
+                <div class="g-icon skill-icon"></div>
+                <div class="game-menu-text">Kỹ năng</div>
+            </button>
+            <button class="game-menu-btn">
+                <div class="g-icon mission-icon"></div>
+                <div class="game-menu-text">Nhiệm vụ</div>
+            </button>
+            <button class="game-menu-btn">
+                <div class="g-icon place-icon"></div>
+                <div class="game-menu-text">Bản đồ</div>
+            </button>
+            <button class="game-menu-btn">
+                <div class="g-icon social-icon"></div>
+                <div class="game-menu-text">Xã hội</div>
+            </button>
+            <button class="game-menu-btn">
+                <div class="g-icon cup-icon"></div>
+                <div class="game-menu-text">Thành tích</div>
+            </button>
+        </div>
+        <div id="nav-btn-slot"></div>
+    </footer>
+    <script src="https://kit.fontawesome.com/c4edd7a73c.js" crossorigin="anonymous"></script>
+    <script type="module" src="./home.js"></script>
+</body>
+
+</html>
