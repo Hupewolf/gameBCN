@@ -1,0 +1,54 @@
+.nav-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	padding: 4px 8px;
+	border-radius: 12px;
+    background: linear-gradient(180deg,
+            rgba(12, 25, 70, .95),
+            rgba(4, 12, 40, .95));
+    box-shadow:
+        0 0 25px rgba(94, 125, 255, .7),
+        0 0 60px rgba(119, 66, 255, .4),
+        inset 0 0 20px rgba(120, 180, 255, .15);
+	color: #b0ffff;
+	font-size: 14px;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	transition: background 0.2s, border-color 0.2s, transform 0.15s;
+	cursor: pointer;
+}
+
+.nav-btn:hover {
+	background: rgba(79, 142, 247, 0.18);
+	border-color: rgba(79, 142, 247, 0.9);
+	transform: translateX(3px);
+}
+
+.nav-btn__icon {
+	width: 42px;
+	height: 42px;
+	object-fit: contain;
+}
+
+.nav-btn__label {
+	padding-top: 5px;
+	flex: 1;
+}
+
+.nav-btn__arrow {
+	display: flex;
+	font-size: 18px;
+	opacity: 0.7;
+	transition: opacity 0.2s;
+}
+
+.nav-btn:hover .nav-btn__arrow {
+	opacity: 1;
+}
+
+#nav-btn-slot {
+	display: flex;
+	justify-content: center;
+}

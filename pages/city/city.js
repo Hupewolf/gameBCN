@@ -1,3 +1,7 @@
+import { playerState, GameHeader } from '../../share/main.js';
+
+GameHeader.render(playerState, { showHamburger: true }); // Chỉnh true/false để hiện/ẩn nút menu
+
 document.addEventListener("DOMContentLoaded", () => {
     const scrollLeftBtn = document.getElementById("scrollLeftBtn");
     const scrollRightBtn = document.getElementById("scrollRightBtn");

@@ -1,0 +1,49 @@
+/* body {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.3),
+                        rgba(0,0,0,0.3)),
+						url(../../img/background/Phòng\ buổi\ chiều.png);
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+
+body {
+	width: 100%;
+    height: 100vh;
+    background:	url(../../img/background/Phòng\ buổi\ chiều.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.65),
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.1)
+    );
+    z-index: 0;
+}
+
+.main {
+	position: absolute;
+    top: 30%;
+    transform: translate(-50%);
+    right: 0;
+    width: fit-content;
+}
+
+img {
+	display: block;
+}

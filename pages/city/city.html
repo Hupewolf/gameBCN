@@ -6,14 +6,18 @@
         <title>Document</title>
         <link rel="stylesheet" href="city.css" />
         <link rel="stylesheet" href="../../share/ultis.css" />
+        <link rel="stylesheet" href="../../component/header/header.css" />
+        <link rel="stylesheet" href="../../component/footer/footer.css">
+        <link rel="stylesheet" href="../../component/navButton/navbutton.css">
     </head>
     <body>
+        <header id="game-header"></header>
         <div class="map">
             <div class="library blockMarker">
                 <div class="location-marker">
                     <div class="marker-box">
                         <div class="icon-circle">
-                            <i class="fa-solid fa-book-open icon-maker"></i>
+                            <i class="fa-solid fa-book-open icon-marker"></i>
                         </div>
                         <div class="marker-pointer"></div>
                     </div>
@@ -24,7 +28,7 @@
                 <div class="location-marker">
                     <div class="marker-box">
                         <div class="icon-circle">
-                            <i class="fa-solid fa-user-group icon-maker"></i>
+                            <i class="fa-solid fa-user-group icon-marker"></i>
                         </div>
                         <div class="marker-pointer"></div>
                     </div>
@@ -35,7 +39,7 @@
                 <div class="location-marker">
                     <div class="marker-box">
                         <div class="icon-circle">
-                            <i class="fa-solid fa-user-group icon-maker"></i>
+                            <i class="fa-solid fa-location-dot icon-marker"></i></i>
                         </div>
                         <div class="marker-pointer"></div>
                     </div>
@@ -46,7 +50,7 @@
                 <div class="location-marker">
                     <div class="marker-box">
                         <div class="icon-circle">
-                            <i class="fa-solid fa-user-group icon-maker"></i>
+                            <i class="fa-solid fa-graduation-cap icon-marker"></i></i>
                         </div>
                         <div class="marker-pointer"></div>
                     </div>
@@ -57,7 +61,7 @@
                 <div class="location-marker">
                     <div class="marker-box">
                         <div class="icon-circle">
-                            <i class="fa-solid fa-user-group icon-maker"></i>
+                            <i class="fa-solid fa-calendar-days icon-marker"></i></i>
                         </div>
                         <div class="marker-pointer"></div>
                     </div>
@@ -68,7 +72,7 @@
                 <div class="location-marker">
                     <div class="marker-box">
                         <div class="icon-circle">
-                            <i class="fa-solid fa-user-group icon-maker"></i>
+                            <i class="fa-solid fa-cart-shopping icon-marker"></i></i>
                         </div>
                         <div class="marker-pointer"></div>
                     </div>
@@ -83,8 +87,9 @@
         <div class="nav-arrow right-arrow" id="scrollRightBtn">
             <i class="fas fa-chevron-right"></i>
         </div>
-
+        <footer></footer>
         <script src="https://kit.fontawesome.com/c4edd7a73c.js" crossorigin="anonymous"></script>
-        <script src="city.js"></script>
+        <script type="module" src="../../component/footer/footer.js"></script>
+        <script type="module" src="./city.js"></script>
     </body>
 </html>

@@ -1,37 +1,38 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-}
-
-body {
-    width: 100%;
-    height: 100vh;
-    padding: 32px;
-    background: url(../../img/background/Phòng\ buổi\ chiều.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 .box {
-    position: relative;
-    left: 70%;
-    top: 30%;
-    width: 340px;
-    padding: 20px 18px;
-    border-radius: 22px;
+    width: 255px;
+    max-height: 300px;
+    padding: 15px 14px;
+    border-radius: 16px;
     background: linear-gradient(180deg,
             rgba(12, 25, 70, .95),
             rgba(4, 12, 40, .95));
     box-shadow:
-        0 0 25px rgba(94, 125, 255, .7),
-        0 0 60px rgba(119, 66, 255, .4),
-        inset 0 0 20px rgba(120, 180, 255, .15);
+        0 0 18px rgba(94, 125, 255, .7),
+        0 0 45px rgba(119, 66, 255, .4),
+        inset 0 0 15px rgba(120, 180, 255, .15);
     overflow: hidden;
+    transition: width 0.4s ease, 
+                height 0.4s ease;
+    position: absolute;
+    right: 35px;
 }
 
+.box.collapsed {
+    width: 50px;
+    height: 50px;
+}
+
+.mission-content {
+    opacity: 1;
+    transition: opacity .2s ease;
+}
+
+.box.collapsed .mission-list,
+.box.collapsed .title,
+.box.collapsed .watch-all {
+    opacity: 0;
+    pointer-events: none;
+}
 
 @keyframes spin {
     to {
@@ -44,58 +45,64 @@ body {
     z-index: 2;
 }
 
-
-
 .head-box {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 8px;
-    padding: 6px 4px;
+    gap: 6px;
+    padding: 4px 3px;
 }
 
 .title {
     font-weight: 500;
     letter-spacing: 1px;
     color: #dff4ff;
-    font-size: 18px;
+    font-size: 14px;
     text-shadow:
-        0 0 25px rgba(94, 125, 255, .7),
-        0 0 60px rgba(119, 66, 255, .4),
-        inset 0 0 20px rgba(120, 180, 255, .15);
+        0 0 18px rgba(94, 125, 255, .7),
+        0 0 45px rgba(119, 66, 255, .4),
+        inset 0 0 15px rgba(120, 180, 255, .15);
 }
 
-.head-box svg {
+.calender-icon {
+    width: 24px;
+	height: 24px;
+	background-color: rgba(223, 244, 255, 0.9);
+	-webkit-mask: url("../../img/icon/simple-line-icons_calender.svg") no-repeat center;
+	mask: url("../../img/icon/simple-line-icons_calender.svg") no-repeat center;
     opacity: 0.9;
-    fill: rgba(223, 244, 255, 0.9);
-    box-shadow:
-        0 0 25px rgba(94, 125, 255, .7),
-        0 0 60px rgba(119, 66, 255, .4),
-        inset 0 0 20px rgba(120, 180, 255, .15);
+}
+
+#mission-today {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+}
+
+.box.collapsed #mission-today {
+    transform: translateY(-30px);
 }
 
 .mission-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-top: 12px;
+    gap: 9px;
+    margin-top: 9px;
 }
 
 .mission-card {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 10px 8px;
-    border-radius: 10px;
-    
-    border-top: 3px solid rgba(255, 255, 255, 0.03);
+    gap: 9px;
+    padding: 8px 6px;
+    border-radius: 8px;
+    border-top: 2px solid rgba(255, 255, 255, 0.03);
 }
 
-
 .icon {
-    width: 52px;
-    height: 52px;
-    min-width: 52px;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,30 +110,53 @@ body {
     border-radius: 50%;
     background: rgba(10, 25, 80, .9);
     box-shadow:
-        0 0 10px rgba(120, 180, 255, .8),
-        0 0 20px rgba(120, 180, 255, .5),
-        inset 0 0 15px rgba(120, 180, 255, .3);
+        0 0 8px rgba(120, 180, 255, .8),
+        0 0 15px rgba(120, 180, 255, .5),
+        inset 0 0 10px rgba(120, 180, 255, .3);
 }
 
 .mission-card:nth-child(1) .icon {
-    box-shadow: 0 6px 18px rgba(90, 220, 255, 0.06), 0 0 18px rgba(90, 220, 255, 0.12) inset;
+    box-shadow:
+        0 4px 12px rgba(90, 220, 255, 0.06),
+        0 0 12px rgba(90, 220, 255, 0.12) inset;
 }
 
 .mission-card:nth-child(2) .icon {
-    box-shadow: 0 6px 18px rgba(150, 110, 255, 0.06), 0 0 18px rgba(150, 110, 255, 0.12) inset;
+    box-shadow:
+        0 4px 12px rgba(150, 110, 255, 0.06),
+        0 0 12px rgba(150, 110, 255, 0.12) inset;
 }
 
 .mission-card:nth-child(3) .icon {
-    box-shadow: 0 6px 18px rgba(100, 220, 180, 0.06), 0 0 18px rgba(100, 220, 180, 0.12) inset;
+    box-shadow:
+        0 4px 12px rgba(100, 220, 180, 0.06),
+        0 0 12px rgba(100, 220, 180, 0.12) inset;
 }
 
-.icon svg {
-    width: 20px;
-    height: 20px;
-    fill: #85bbf7;
-    position: relative;
-    z-index: 3;
+.gift-icon {
+    width: 24px;
+	height: 24px;
+	background-color: #85bbf7;
+	-webkit-mask: url("../../img/icon/mdi_gift.svg") no-repeat center;
+	mask: url("../../img/icon/mdi_gift.svg") no-repeat center;
 }
+
+.target-icon {
+    width: 24px;
+	height: 24px;
+	background-color: #85bbf7;
+	-webkit-mask: url("../../img/icon/ri_target-fill.svg") no-repeat center;
+	mask: url("../../img/icon/ri_target-fill.svg") no-repeat center;
+}
+
+.book-icon {
+    width: 24px;
+	height: 24px;
+	background-color: #85bbf7;
+	-webkit-mask: url("../../img/icon/ix_book.svg") no-repeat center;
+	mask: url("../../img/icon/ix_book.svg") no-repeat center;
+}
+
 
 .icon::before {
     content: "";
@@ -155,6 +185,7 @@ body {
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }
@@ -166,49 +197,63 @@ body {
 
 .info {
     color: #dfefff;
-    font-size: 13px;
-    margin-bottom: 6px;
+    font-size: 10px;
+    margin-bottom: 4px;
 }
 
 .index {
-    font-size: 12px;
+    font-size: 9px;
     color: #bfe8ff;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
 }
 
 .index img {
-    width: 14px;
-    height: 14px;
+    width: 10px;
+    height: 10px;
 }
 
 .frequency {
-    min-width: 46px;
+    min-width: 34px;
     text-align: right;
     color: #9fe6ff;
     font-weight: 600;
+    font-size: 10px;
 }
 
 .tick {
+    display: flex;
+    gap: 4px;
+    align-items: flex-end;
     color: #00d30b;
 }
 
+.tick img {
+    width: 16px;
+    height: 16px;
+}
+
 .watch-all {
-    margin-top: 14px;
+    margin-top: 10px;
     align-self: stretch;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.02),
+        rgba(255, 255, 255, 0.01)
+    );
     color: #cfeeff;
-    padding: 10px 12px;
+    padding: 8px 10px;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.04);
     font-weight: 700;
+    font-size: 11px;
     letter-spacing: 1px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 6px;
     position: relative;
     cursor: pointer;
 }
@@ -217,9 +262,9 @@ body {
     content: '';
     position: absolute;
     inset: -2px;
-    border-radius: 12px;
+    border-radius: 10px;
     background: linear-gradient(90deg, #3ee7ff, #7a39ff);
-    filter: blur(8px);
+    filter: blur(6px);
     opacity: 0.12;
     z-index: -1;
 }
@@ -228,9 +273,11 @@ body {
     transform: translateY(-2px);
 }
 
+
+
 @media (max-width: 400px) {
     .box {
         width: 100%;
-        padding: 14px;
+        padding: 12px;
     }
 }
