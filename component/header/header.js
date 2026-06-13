@@ -1,29 +1,17 @@
 import { StatBar, updateStatBar } from './StatBar.js';
 
 export const GameHeader = {
-
-	// options: { showHamburger: bool }
-	render(state, options = {}) {
+	render(state = {}) {
 		const el = document.getElementById('game-header');
 		if (!el) return;
 
-		const { showHamburger = false } = options;
 		const xpPct = (state.xp.current / state.xp.max) * 100;
 		const stats = Object.entries(state.stats);
 		const cur = state.currency;
 
 		el.innerHTML = `
+			<!-- Player info -->
 			<div class="header__left">
-
-				${showHamburger ? `
-				<div class="header__sidebar-area">
-					<button class="header__hamburger" id="hamburger-btn" aria-label="Menu">
-						<img src="../../img/icon/pajamas_hamburger.svg" alt="menu" width="20" height="20">
-					</button>
-					<div id="sidebar-below"></div>
-				</div>` : ''}
-
-				<!-- Player info -->
 				<div class="header__player">
 					<div class="header__avatar">
 						<img src="../../img/icon/fluent_person-28-filled.svg" alt="${state.name}" width="40" height="40">
@@ -39,7 +27,6 @@ export const GameHeader = {
 						</span>
 					</div>
 				</div>
-
 			</div>
 
 			<!-- Stats -->
@@ -69,37 +56,9 @@ export const GameHeader = {
 	},
 
 	_bindEvents() {
-		document.getElementById('hamburger-btn')
-			?.addEventListener('click', () => {
-				// TODO: thêm chức năng sau
-			});
-
 		document.querySelector('.currency__add-btn')
 			?.addEventListener('click', () => {
-				// TODO: mở shop / nạp
 			});
 	},
 
-	// // Cập nhật stat cụ thể
-	// updateStat(key, value, max) {
-	// 	updateStatBar(key, value, max);
-	// },
-
-	// // Cập nhật currency
-	// updateCurrency(key, value) {
-	// 	const el = document.querySelector(`.currency-item[data-currency="${key}"] .currency-item__val`);
-	// 	if (!el) return;
-	// 	el.textContent = typeof value === 'object'
-	// 		? `${value.current}/${value.max}`
-	// 		: value.toLocaleString();
-	// },
-
-	// // Cập nhật XP
-	// updateXP(current, max) {
-	// 	const pct = (current / max) * 100;
-	// 	const fill = document.querySelector('.header__xp-fill');
-	// 	const text = document.querySelector('.header__xp-text');
-	// 	if (fill) fill.style.width = `${pct}%`;
-	// 	if (text) text.textContent = `${current.toLocaleString()} / ${max.toLocaleString()} XP`;
-	// },
 };
