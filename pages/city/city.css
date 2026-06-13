@@ -58,7 +58,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    left: -3px;
+    left: -16px;
     bottom: 3px;
     background: rgba(15, 25, 60, 0.9);
     border: 2px solid rgba(150, 180, 255, 0.9);
@@ -72,7 +72,7 @@ body {
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
 }
 .marker-text {
-    width: 90px;
+    width: 100px;
     height: auto;
     padding: 6px 0;
     display: flex;
@@ -96,7 +96,7 @@ body {
     border-top: 12px solid rgb(162, 216, 255);
     margin-top: -5px;
     position: absolute;
-    left:  13px;
+    left: 0px;
     bottom: -7px;
     z-index: 0;
     filter: drop-shadow(0 3px 5px rgba(130, 160, 255, 0.5));
@@ -106,20 +106,20 @@ body {
     left: 24%;
 }
 .people {
-    top: 50%;
-    left: 33%;
+    top: 51%;
+    left: 34%;
 }
 .center {
-    top: 61%;
-    left: 53%;
+    top: 59%;
+    left: 54%;
 }
 .school {
-    top: 29%;
-    left: 55%;
+    top: 30%;
+    left: 57%;
 }
 .event {
     top: 59%;
-    left: 84%;
+    left: 85%;
 }
 .shop {
     top: 70%;

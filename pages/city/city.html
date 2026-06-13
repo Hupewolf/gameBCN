@@ -6,8 +6,12 @@
         <title>Document</title>
         <link rel="stylesheet" href="city.css" />
         <link rel="stylesheet" href="../../share/ultis.css" />
+        <link rel="stylesheet" href="../../component/header/header.css" />
+        <link rel="stylesheet" href="../../component/footer/footer.css">
+        <link rel="stylesheet" href="../../component/navButton/navbutton.css">
     </head>
     <body>
+        <header id="game-header"></header>
         <div class="map">
             <div class="library blockMarker">
                 <div class="location-marker">
@@ -83,8 +87,9 @@
         <div class="nav-arrow right-arrow" id="scrollRightBtn">
             <i class="fas fa-chevron-right"></i>
         </div>
-
+        <footer></footer>
         <script src="https://kit.fontawesome.com/c4edd7a73c.js" crossorigin="anonymous"></script>
-        <script src="city.js"></script>
+        <script type="module" src="../../component/footer/footer.js"></script>
+        <script type="module" src="./city.js"></script>
     </body>
 </html>

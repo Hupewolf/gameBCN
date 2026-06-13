@@ -1,9 +1,13 @@
 #game-header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
 	z-index: 100;
 	display: flex;
 	justify-content: space-between;
 	gap: 16px;
-	padding: 8px 16px;
+	padding: 16px;
 	background: transparent;
 }
 
@@ -207,7 +211,7 @@
 
 .stat-bar__value {
 	font-size: 11px;
-	color: var(--color-text-mute);
+	color: var(--color-text);
 	white-space: nowrap;
 }
 
