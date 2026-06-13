@@ -9,7 +9,7 @@ export const NavButton = {
 			<a class="nav-btn primary" href="${href}">
 				<img class="nav-btn__icon" src="${icon}" alt="${label}">
 				<span class="nav-btn__label">${label}</span>
-				<span class="nav-btn__arrow"><img src="../../img/icon/vector.svg" alt="menu" width="16" height="16"></span>
+				<span class="nav-btn__arrow"><img src="../../img/icon/Vector.svg" alt="menu" width="16" height="16"></span>
 			</a>
     `;
 	},
