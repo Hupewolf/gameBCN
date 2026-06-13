@@ -35,6 +35,6 @@ const isCityPage = window.location.pathname.includes('city.html');
 
 NavButton.render('nav-btn-slot', {
 	label: isCityPage ? 'Quay về phòng' : 'Ra thành phố',
-	icon: '../../img/background/53e4bcab-684d-4a3d-a038-c800d58642f8-removebg-preview.png',
+	icon: isCityPage ? '../../img/icon/mdi_home.png' : '../../img/background/53e4bcab-684d-4a3d-a038-c800d58642f8-removebg-preview.png',
 	href: isCityPage ? '../room/room.html' : '../city/city.html',
 });

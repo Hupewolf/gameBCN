@@ -80,6 +80,7 @@ export const GameHeader = {
 			});
 	},
 
+	//cập nhật sau khi tìm ra cách tăng giảm chỉ số
 	// // Cập nhật stat cụ thể
 	// updateStat(key, value, max) {
 	// 	updateStatBar(key, value, max);

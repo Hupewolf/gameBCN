@@ -1,37 +1,89 @@
+.outer-box {
+    position: relative;
+    width: 255px;
+}
+
+.outer-box.minimized #mission-icon {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+.mission-icon-btn {
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+        180deg,
+        rgba(12,25,70,.95),
+        rgba(4,12,40,.95)
+    );
+    box-shadow:
+        0 0 18px rgba(94,125,255,.7),
+        0 0 45px rgba(119,66,255,.4),
+        inset 0 0 15px rgba(120,180,255,.15);
+}
+
+#mission-icon {
+    position: absolute;
+    right: 0;
+    opacity: 0;
+    transform: scale(0);
+    transition: all .35s ease;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+
 .box {
     width: 255px;
     max-height: 300px;
     padding: 15px 14px;
     border-radius: 16px;
-    background: linear-gradient(180deg,
-            rgba(12, 25, 70, .95),
-            rgba(4, 12, 40, .95));
+    background: linear-gradient(
+        180deg,
+        rgba(12,25,70,.95),
+        rgba(4,12,40,.95)
+    );
     box-shadow:
-        0 0 18px rgba(94, 125, 255, .7),
-        0 0 45px rgba(119, 66, 255, .4),
-        inset 0 0 15px rgba(120, 180, 255, .15);
+        0 0 18px rgba(94,125,255,.7),
+        0 0 45px rgba(119,66,255,.4),
+        inset 0 0 15px rgba(120,180,255,.15);
     overflow: hidden;
-    transition: width 0.4s ease, 
-                height 0.4s ease;
-    position: absolute;
-    right: 16px;
+    position: relative;
+    transform-origin: top right;
+    transition:
+        transform 0.35s ease,
+        opacity 0.35s ease;
+}
+
+#mission-close {
+    cursor: pointer;
 }
 
 .box.collapsed {
-    width: 50px;
-    height: 50px;
+    opacity: 0;
+    transform: scale(.2);
+    pointer-events: none;
+}
+
+.box.collapsed #mission-icon {
+    opacity: 0;
 }
 
 .mission-content {
     opacity: 1;
-    transition: opacity .2s ease;
+    transition: opacity 0.2s ease;
 }
 
 .box.collapsed .mission-list,
 .box.collapsed .title,
 .box.collapsed .watch-all {
     opacity: 0;
-    pointer-events: none;
 }
 
 @keyframes spin {
@@ -71,16 +123,6 @@
 	-webkit-mask: url("../../img/icon/simple-line-icons_calender.svg") no-repeat center;
 	mask: url("../../img/icon/simple-line-icons_calender.svg") no-repeat center;
     opacity: 0.9;
-}
-
-#mission-today {
-    cursor: pointer;
-    position: absolute;
-    right: 0;
-}
-
-.box.collapsed #mission-today {
-    transform: translateY(-30px);
 }
 
 .mission-list {

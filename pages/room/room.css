@@ -38,8 +38,8 @@ body::before {
 
 .main {
 	position: absolute;
-    top: 30%;
-    transform: translate(-50%);
+    top: 20%;
+	padding: 16px;
     right: 0;
     width: fit-content;
 }

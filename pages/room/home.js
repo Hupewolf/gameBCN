@@ -5,8 +5,16 @@ GameHeader.render(playerState, { showHamburger: false });
 
 
 const box = document.getElementById("mission-box");
-const btn = document.getElementById("mission-today");
+const openBtn = document.getElementById("mission-icon");
+const closeBtn = document.getElementById("mission-close");
+const wrapper = document.querySelector(".outer-box");
 
-btn.addEventListener("click", () => {
-    box.classList.toggle("collapsed");
+closeBtn.addEventListener("click", () => {
+    box.classList.add("collapsed");
+    wrapper.classList.add("minimized");
+});
+
+openBtn.addEventListener("click", () => {
+    box.classList.remove("collapsed");
+    wrapper.classList.remove("minimized");
 });
