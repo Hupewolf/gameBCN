@@ -7,7 +7,7 @@
 	display: flex;
 	justify-content: space-between;
 	gap: 16px;
-	padding: 16px;
+	padding: 16px 35px;
 	background: transparent;
 }
 

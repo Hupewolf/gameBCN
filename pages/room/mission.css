@@ -14,7 +14,7 @@
     transition: width 0.4s ease, 
                 height 0.4s ease;
     position: absolute;
-    right: 16px;
+    right: 35px;
 }
 
 .box.collapsed {

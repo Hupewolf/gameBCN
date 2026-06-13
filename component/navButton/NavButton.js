@@ -1,13 +1,4 @@
-/**
- * NavButton — nút chuyển trang dưới footer
- * 
- * Dùng:
- *   NavButton.render('nav-btn-slot', {
- *     label: 'Ra thành phố',
- *     icon: 'assets/icons/car.png',
- *     href: 'city.html',
- *   });
- */
+
 export const NavButton = {
 
 	render(slotId, { label, icon, href }) {
