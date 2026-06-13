@@ -39,7 +39,7 @@ body::before {
 .main {
 	position: absolute;
     top: 20%;
-	padding: 16px;
+	padding: 16px 35px;
     right: 0;
     width: fit-content;
 }
