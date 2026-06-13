@@ -1,7 +1,7 @@
-import { NavButton } from '../navButton/NavButton.js';
-
-const footer = document.getElementsByTagName('footer')[0] ?? [];
-footer.innerHTML =`
+import { NavButton } from "../navButton/NavButton.js";
+import { InventoryModal } from "../personalItem/personalItem.js";
+const footer = document.getElementsByTagName("footer")[0] ?? [];
+footer.innerHTML = `
         <div class="game-menu">
             <button class="game-menu-btn">
                 <div class="g-icon bag-icon"></div>
@@ -29,13 +29,20 @@ footer.innerHTML =`
             </button>
         </div>
         <div id="nav-btn-slot"></div>
-`
-const navBtnArrow = document.querySelector('.nav-btn__arrow');
+`;
+const navBtnArrow = document.querySelector(".nav-btn__arrow");
 
-const isCityPage = window.location.pathname.includes('city.html');
+const isCityPage = window.location.pathname.includes("city.html");
 
-NavButton.render('nav-btn-slot', {
-	label: isCityPage ? 'Quay về phòng' : 'Ra thành phố',
-	icon: isCityPage ? '/img/icon/iconRoom.svg' : '/img/icon/iconCity.svg',
-	href: isCityPage ? '../room/room.html' : '../city/city.html',
+NavButton.render("nav-btn-slot", {
+    label: isCityPage ? "Quay về phòng" : "Ra thành phố",
+    icon: isCityPage ? "/img/icon/iconRoom.svg" : "/img/icon/iconCity.svg",
+    href: isCityPage ? "../room/room.html" : "../city/city.html",
 });
+
+const bagBtn = document.querySelector(".bag-icon")?.closest(".game-menu-btn");
+if (bagBtn) {
+    bagBtn.addEventListener("click", () => {
+        InventoryModal.show();
+    });
+}
