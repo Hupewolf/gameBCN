@@ -108,7 +108,7 @@ body {
     border-top: 12px solid rgb(162, 216, 255);
     margin-top: -5px;
     position: absolute;
-    left: 50%;
+    left: 48%;
     transform: translate(-50%);
     bottom: -7px;
     z-index: 0;
