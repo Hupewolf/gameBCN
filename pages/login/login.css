@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0d1b2a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #ffffff;
+}
+
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #00f3ff;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s;
+}
+
+.back-btn:hover {
+    color: #fff;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.login-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.login-box h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #00f3ff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    outline: none;
+    box-sizing: border-box;
+    font-size: 15px;
+    transition: border-color 0.3s;
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.input-group input:focus {
+    border-color: #00f3ff;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #00f3ff;
+    color: #0d1b2a;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+}
+
+.login-btn:hover {
+    background-color: #00c2cc;
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
+}

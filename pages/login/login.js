@@ -1,0 +1,53 @@
+// Hàm riêng gọi API và xác thực user
+async function authenticateUser(mssv, password) {
+    try {
+        const response = await fetch("https://6a106463d2a985707036bbf0.mockapi.io/accounts/examess");
+        if (!response.ok) throw new Error("Lỗi mạng khi tải API");
+        const users = await response.json();
+        console.log("Users from API:", users);
+        // So sánh MSSV và Password từ API
+        const user = users.find(u => u.mssv === mssv && u.password === password);
+        return user;
+    } catch (error) {
+        console.error("Lỗi fetch API:", error);
+        return null;
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const loginForm = document.getElementById("login-form");
+
+    if (loginForm) {
+        loginForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            
+            const mssv = document.getElementById("mssv").value.trim();
+            const password = document.getElementById("password").value;
+
+            // Kiểm tra MSSV phải đúng 8 chữ số
+            const mssvRegex = /^\d{8}$/;
+
+            if (!mssvRegex.test(mssv)) {
+                alert("Vui lòng nhập đúng định dạng MSSV gồm 8 chữ số!");
+                return;
+            }
+
+            const loginBtn = loginForm.querySelector(".login-btn");
+            loginBtn.textContent = "Đang xác thực...";
+            loginBtn.disabled = true;
+
+            const user = await authenticateUser(mssv, password);
+            
+            if (user) {
+                console.log("Đăng nhập thành công với user:", user.name);
+                localStorage.setItem("isLoggedIn", "true");
+                localStorage.setItem("currentUser", JSON.stringify(user)); // Lưu toàn bộ data của user
+                window.history.back();
+            } else {
+                alert("MSSV hoặc mật khẩu không chính xác!");
+                loginBtn.textContent = "Đăng nhập";
+                loginBtn.disabled = false;
+            }
+        });
+    }
+});
