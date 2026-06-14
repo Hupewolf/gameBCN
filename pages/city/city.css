@@ -11,16 +11,20 @@ body {
     scrollbar-width: none;
 }
 
-
 ::-webkit-scrollbar {
     display: none;
 }
 
 .map {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    background: url(../../img/background/backgroundCity.png);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: max(100vw, calc(100vh * 16 / 9));
+    height: max(100vh, calc(100vw * 9 / 16));
+    
+    background: url(../../img/background/backgroundCity.svg);
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -28,12 +32,12 @@ body {
 .map::before {
     content: "";
     position: absolute;
-    inset: -1px;
+    inset: -1px;    
     background: linear-gradient(
         to bottom,
-        rgba(0, 0, 0, 0.65),
-        rgba(0, 0, 0, 0.1),
-        rgba(0, 0, 0, 0.1)
+        rgba(0, 0, 0, 0.118),
+        rgba(0, 0, 0, 0.071),
+        rgba(0, 0, 0, 0.074)
     );
     z-index: 0;
 }
@@ -115,28 +119,28 @@ body {
     filter: drop-shadow(0 3px 5px rgba(130, 160, 255, 0.5));
 }
 .library {
-    top: 30%;
-    left: 24%;
+    top: 35%;
+    left: 42%;
 }
 .people {
-    top: 51%;
-    left: 34%;
+    top: 45%;
+    left: 51%;
 }
 .center {
-    top: 59%;
-    left: 54%;
+    top: 56%;
+    left: 58%;
 }
 .school {
-    top: 30%;
-    left: 57%;
+    top: 23%;
+    left: 61%;
 }
 .event {
-    top: 59%;
-    left: 85%;
+    top: 49%;
+    left: 80%;
 }
 .shop {
-    top: 70%;
-    left: 69%;
+    top: 68%;
+    left: 52%;
 }
 .nav-arrow {
     display: none;
@@ -179,6 +183,11 @@ body {
         overflow-x: auto;
     }
     .map {
+        /* Đặt lại thuộc tính cho chế độ điện thoại (cho phép cuộn ngang) */
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
         width: 200vh;
         height: 100vh;
         max-width: none;
