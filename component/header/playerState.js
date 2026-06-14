@@ -8,8 +8,7 @@ export const playerState = {
 		stress: { value: 30, max: 100, icon: '../../img/icon/brain.png', label: 'Stress' },
 	},
 	currency: {
-		gold: { value: 2450, icon: '../../img/icon/star.png' },
-		gem: { value: 780, icon: '../../img/icon/diamond.png' },
+		ucoin: { value: 2450, icon: '../../img/icon/UCoin.svg' },
 		energy: { current: 96, max: 120, icon: '../../img/icon/flash.png' },
 	},
 };

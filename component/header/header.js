@@ -35,20 +35,19 @@ export const GameHeader = {
 			</div>
 
 			<!-- Currency -->
-			<div class="header__currency">
-				<span class="currency-item" data-currency="gold">
-					<img src="${cur.gold.icon}" alt="gold" width="16" height="16">
-					<span class="currency-item__val">${cur.gold.value.toLocaleString()}</span>
-				</span>
-				<span class="currency-item" data-currency="gem">
-					<img src="${cur.gem.icon}" alt="gem" width="16" height="16">
-					<span class="currency-item__val">${cur.gem.value.toLocaleString()}</span>
-				</span>
-				<span class="currency-item" data-currency="energy">
-					<img src="${cur.energy.icon}" alt="energy" width="16" height="16">
-					<span class="currency-item__val">${cur.energy.current}/${cur.energy.max}</span>
-				</span>
-				<button class="currency__add-btn" aria-label="Nạp thêm"><img src="../../img/icon/mynaui_plus-solid.svg" width="24" height="24"></button>
+			<div class="outer-header__currency">
+				<button class="notification-btn"><div class="g-icon noti-icon"></div></button>
+				<div class="header__currency">
+					<span class="currency-item" data-currency="gem">
+						<img src="${cur.ucoin.icon}" alt="gem" width="16" height="16">
+						<span class="currency-item__val">${cur.ucoin.value.toLocaleString()}</span>
+					</span>
+					<span class="currency-item" data-currency="energy">
+						<img src="${cur.energy.icon}" alt="energy" width="16" height="16">
+						<span class="currency-item__val">${cur.energy.current}/${cur.energy.max}</span>
+					</span>
+					<button class="currency__add-btn" aria-label="Nạp thêm"><img src="../../img/icon/mynaui_plus-solid.svg" width="24" height="24"></button>
+				</div>
 			</div>
 		`;
 
