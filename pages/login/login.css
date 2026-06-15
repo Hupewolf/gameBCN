@@ -10,23 +10,6 @@ body {
     color: #ffffff;
 }
 
-.back-btn {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    color: #00f3ff;
-    text-decoration: none;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: color 0.3s;
-}
-
-.back-btn:hover {
-    color: #fff;
-}
-
 .login-container {
     width: 100%;
     max-width: 400px;
