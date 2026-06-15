@@ -206,6 +206,37 @@
 }
 
 /* Currency section */
+.outer-header__currency {
+	display: flex;
+	gap: 10px;
+}
+
+.notification-btn {
+	width: 34px;
+    height: 34px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+        180deg,
+        rgba(12,25,70,.95),
+        rgba(4,12,40,.95)
+    );
+    box-shadow:
+        0 0 18px rgba(94,125,255,.7),
+        0 0 45px rgba(119,66,255,.4),
+        inset 0 0 15px rgba(120,180,255,.15);
+}
+
+.noti-icon {
+	width: 24px;
+	height: 24px;
+	background-color: rgba(223, 244, 255, 0.9);
+	-webkit-mask: url("../../img/icon/mdi_bell-outline.svg") no-repeat center;
+	mask: url("../../img/icon/mdi_bell-outline.svg") no-repeat center;
+}
+
 .header__currency {
     height: fit-content;
     display: flex;

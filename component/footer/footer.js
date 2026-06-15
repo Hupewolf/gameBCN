@@ -1,5 +1,7 @@
 import { NavButton } from "../navButton/NavButton.js";
 import { InventoryModal } from "../personalItem/personalItem.js";
+import { BattleCard } from "../battleCard/BattleCard.js";
+
 const footer = document.getElementsByTagName("footer")[0] ?? [];
 footer.innerHTML = `
         <div class="game-menu">
@@ -28,7 +30,10 @@ footer.innerHTML = `
                 <div class="game-menu-text">Thành tích</div>
             </button>
         </div>
-        <div id="nav-btn-slot"></div>
+        <div class="footer-right-panel">
+            <div id="battle-card-slot"></div>
+            <div id="nav-btn-slot"></div>
+        </div>
 `;
 const navBtnArrow = document.querySelector(".nav-btn__arrow");
 
@@ -38,6 +43,18 @@ NavButton.render("nav-btn-slot", {
     label: isCityPage ? "Quay về phòng" : "Ra thành phố",
     icon: isCityPage ? "/img/icon/iconRoom.svg" : "/img/icon/iconCity.svg",
     href: isCityPage ? "../room/room.html" : "../city/city.html",
+});
+
+// Render BattleCard phía trên NavButton
+BattleCard.render("battle-card-slot", {
+    name: "Quỷ ghê lém",
+    zone: "Khu vực dị thường",
+    level: 25,
+    rewards: { xp: 300, star: 150 },
+    onStart: () => {
+        console.log("Bắt đầu Battle: Quỷ ghê lém");
+        // TODO: mở màn hình battle
+    },
 });
 
 const bagBtn = document.querySelector(".bag-icon")?.closest(".game-menu-btn");
