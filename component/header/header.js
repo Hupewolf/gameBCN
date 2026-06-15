@@ -1,4 +1,5 @@
 import { StatBar, updateStatBar } from './StatBar.js';
+import { PhoneModal } from '../phoneModal/phonemodal.js';
 
 export const GameHeader = {
 	render(state = {}) {
@@ -36,7 +37,6 @@ export const GameHeader = {
 
 			<!-- Currency -->
 			<div class="outer-header__currency">
-				<button class="notification-btn"><div class="g-icon noti-icon"></div></button>
 				<div class="header__currency">
 					<span class="currency-item" data-currency="gem">
 						<img src="${cur.ucoin.icon}" alt="gem" width="16" height="16">
@@ -48,6 +48,10 @@ export const GameHeader = {
 					</span>
 					<button class="currency__add-btn" aria-label="Nạp thêm"><img src="../../img/icon/mynaui_plus-solid.svg" width="24" height="24"></button>
 				</div>
+				<button class="notification-btn"><div class="g-icon noti-icon"></div></button>
+				<button class="phone-trigger-btn" id="phone-trigger-btn" aria-label="Mở điện thoại">
+					<div class="g-icon phone-icon"></div>
+				</button>
 			</div>
 		`;
 
@@ -58,7 +62,12 @@ export const GameHeader = {
 		document.querySelector('.currency__add-btn')
 			?.addEventListener('click', () => {
 			});
+		document.querySelector('#phone-trigger-btn')
+			?.addEventListener('click', () => {
+				PhoneModal.show();
+			});
 	},
+	
 
 	//cập nhật sau khi tìm ra cách tăng giảm chỉ số
 	// // Cập nhật stat cụ thể

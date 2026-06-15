@@ -46,16 +46,18 @@ NavButton.render("nav-btn-slot", {
 });
 
 // Render BattleCard phía trên NavButton
-BattleCard.render("battle-card-slot", {
-    name: "Quỷ ghê lém",
-    zone: "Khu vực dị thường",
-    level: 25,
-    rewards: { xp: 300, star: 150 },
-    onStart: () => {
-        console.log("Bắt đầu Battle: Quỷ ghê lém");
-        // TODO: mở màn hình battle
-    },
-});
+if (isCityPage) {
+    BattleCard.render("battle-card-slot", {
+        name: "Quỷ ghê lém",
+        zone: "Khu vực dị thường",
+        level: 25,
+        rewards: { xp: 300, star: 150 },
+        onStart: () => {
+            console.log("Bắt đầu Battle: Quỷ ghê lém");
+            // TODO: mở màn hình battle
+        },
+    });
+}
 
 const bagBtn = document.querySelector(".bag-icon")?.closest(".game-menu-btn");
 if (bagBtn) {
