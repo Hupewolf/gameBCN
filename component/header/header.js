@@ -120,9 +120,8 @@ export const GameHeader = {
 			if (logoutBtn) {
 				logoutBtn.addEventListener('click', (e) => {
 					e.stopPropagation();
-					localStorage.removeItem("isLoggedIn");
-					localStorage.removeItem("currentUser");
-					window.location.reload(); 
+					localStorage.clear(); 
+					window.location.replace("/pages/login/login.html");
 				});
 			}
 
