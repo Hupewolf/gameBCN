@@ -15,10 +15,12 @@ export function updateStatBar(key, value, max) {
 	if (!el) return;
 	const pct = (value / max) * 100;
 	const fill = el.querySelector('.stat-bar__fill');
-	fill.style.width = `${pct}%`;
-	fill.className = 'stat-bar__fill ' + (
-		pct <= 20 ? 'stat-bar__fill--danger' :
-		pct <= 50 ? 'stat-bar__fill--warn' : 'stat-bar__fill--ok'
-	);
+	if (fill) {
+		fill.style.width = `${pct}%`;
+		fill.className = 'stat-bar__fill ' + (
+			pct <= 20 ? 'stat-bar__fill--danger' :
+			pct <= 50 ? 'stat-bar__fill--warn' : 'stat-bar__fill--ok'
+		);
+	}
 	el.querySelector('.stat-bar__value').textContent = `${value}/${max}`;
 }

@@ -1,8 +1,36 @@
+const getInitials = (name) => {
+	if (!name) return "G"; 
+	const words = name.trim().split(/\s+/);
+	if (words.length === 1) return words[0].substring(0, 2).toUpperCase();
+	return (words[0][0] + words[words.length - 1][0]).toUpperCase();
+};
+
+const getAvatarColor = (name) => {
+	if (!name) return "#6c757d"; 
+	const colors = ["#f56a00", "#7265e6", "#ffbf00", "#00a2ae", "#1890ff", "#eb2f96", "#52c41a", "#e83e8c", "#dc3545", "#fd7e14"];
+	let hash = 0;
+	for (let i = 0; i < name.length; i++) {
+		hash = name.charCodeAt(i) + ((hash << 5) - hash);
+	}
+	return colors[Math.abs(hash) % colors.length];
+};
+
 export const PhoneModal = {
     _initialized: false,
 
     render() {
         if (document.getElementById('phone-modal-overlay')) return;
+        
+        const savedUser = localStorage.getItem("currentUser");
+        const userData = savedUser ? JSON.parse(savedUser) : null;
+        const name = userData?.name || 'Khách';
+        const level = userData?.level || 0;
+        const xpCurrent = userData?.exp?.current || 0;
+        const xpMax = userData?.exp?.max || 20000;
+        const xpPct = Math.min((xpCurrent / xpMax) * 100, 100);
+        const rank = userData?.rank || 'B-Rank';
+        const initials = getInitials(name);
+        const bgColor = getAvatarColor(name);
 
         const overlay = document.createElement('div');
         overlay.id = 'phone-modal-overlay';
@@ -17,17 +45,17 @@ export const PhoneModal = {
 
                 <div class="phone-modal__stCard">
                     <div class="phone-modal__player">
-                        <div class="phone-modal__avatar"></div>
+                        <div class="phone-modal__avatar" style="background-color: ${bgColor}; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 50%;">${initials}</div>
                         <div class="phone-modal__info">
-                            <span class="phone-modal__name">NovaExplorer</span>
-                            <span class="phone-modal__level">Cấp 27</span>
+                            <span class="phone-modal__name">${name}</span>
+                            <span class="phone-modal__level">Cấp ${level}</span>
                             <div class="phone-modal__xp-track">
-                                <div class="phone-modal__xp-fill" style="width: 62%"></div>
+                                <div class="phone-modal__xp-fill" style="width: ${xpPct}%"></div>
                             </div>
-                            <span class="phone-modal__xp-text">12,450 / 20,000 XP</span>
+                            <span class="phone-modal__xp-text">${xpCurrent.toLocaleString()} / ${xpMax.toLocaleString()} XP</span>
                         </div>
                     </div>
-                    <span class="phone-modal__rank">B-Rank</span>
+                    <span class="phone-modal__rank">${rank}</span>
                 </div>
 
                 <div class="phone-modal__section-label">ỨNG DỤNG</div>
