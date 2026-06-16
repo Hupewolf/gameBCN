@@ -1,5 +1,5 @@
 import { StatBar, updateStatBar } from './StatBar.js';
-
+import { PhoneModal } from '../phoneModal/phonemodal.js';
 const getInitials = (name) => {
 	if (!name) return "G"; 
 	const words = name.trim().split(/\s+/);
@@ -16,7 +16,6 @@ const getAvatarColor = (name) => {
 	}
 	return colors[Math.abs(hash) % colors.length];
 };
-
 export const GameHeader = {
 	render(state = {}) {
 		const el = document.getElementById('game-header');
@@ -75,7 +74,6 @@ export const GameHeader = {
 
 			<!-- Currency -->
 			<div class="outer-header__currency">
-				<button class="notification-btn"><div class="g-icon noti-icon"></div></button>
 				<div class="header__currency">
 					<span class="currency-item" data-currency="gem">
 						<img src="${cur.gem.icon}" alt="gem" width="16" height="16">
@@ -87,6 +85,10 @@ export const GameHeader = {
 					</span>
 					<button class="currency__add-btn" aria-label="Nạp thêm"><img src="../../img/icon/mynaui_plus-solid.svg" width="24" height="24"></button>
 				</div>
+				<button class="notification-btn"><div class="g-icon noti-icon"></div></button>
+				<button class="phone-trigger-btn" id="phone-trigger-btn" aria-label="Mở điện thoại">
+					<div class="g-icon phone-icon"></div>
+				</button>
 			</div>
 		`;
 
@@ -123,11 +125,37 @@ export const GameHeader = {
 					window.location.replace("../login/login.html");
 				});
 			}
-
 			document.querySelector('.currency__add-btn')
 				?.addEventListener('click', () => {
+				});
+			document.querySelector('#phone-trigger-btn')
+				?.addEventListener('click', () => {
+					PhoneModal.show();
 				});
 		}
 	},
 
+	//cập nhật sau khi tìm ra cách tăng giảm chỉ số
+	// // Cập nhật stat cụ thể
+	// updateStat(key, value, max) {
+	// 	updateStatBar(key, value, max);
+	// },
+
+	// // Cập nhật currency
+	// updateCurrency(key, value) {
+	// 	const el = document.querySelector(`.currency-item[data-currency="${key}"] .currency-item__val`);
+	// 	if (!el) return;
+	// 	el.textContent = typeof value === 'object'
+	// 		? `${value.current}/${value.max}`
+	// 		: value.toLocaleString();
+	// },
+
+	// // Cập nhật XP
+	// updateXP(current, max) {
+	// 	const pct = (current / max) * 100;
+	// 	const fill = document.querySelector('.header__xp-fill');
+	// 	const text = document.querySelector('.header__xp-text');
+	// 	if (fill) fill.style.width = `${pct}%`;
+	// 	if (text) text.textContent = `${current.toLocaleString()} / ${max.toLocaleString()} XP`;
+	// },
 };

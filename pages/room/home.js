@@ -1,5 +1,4 @@
 import { playerState, GameHeader } from '../../share/main.js';
-import { PhoneModal } from '../../component/phoneModal/phonemodal.js';
 
 // Không có hamburger
 GameHeader.render(playerState, { showHamburger: false });
@@ -19,10 +18,3 @@ openBtn.addEventListener("click", () => {
     box.classList.remove("collapsed");
     wrapper.classList.remove("minimized");
 });
-
-const phoneTrigger = document.getElementById("phone-trigger-btn");
-if (phoneTrigger) {
-	phoneTrigger.addEventListener("click", () => {
-		PhoneModal.show();
-	});
-}
