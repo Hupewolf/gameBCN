@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hệ Thống Guild</title>
+        <link rel="stylesheet" href="guild.css" />
+        <link rel="stylesheet" href="../../share/ultis.css" />
+        <link rel="stylesheet" href="../../component/header/header.css" />
+        <link rel="stylesheet" href="../../component/footer/footer.css" />
+        <link rel="stylesheet" href="../../component/navButton/navbutton.css">
+        <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+    </head>
+    <body>
+        <main>
+            <div class="app-container" id="view-explore">
+                <div class="panel detail-panel" id="guild-detail-panel">
+                    <div class="empty-state" id="empty-state">
+                        <div class="hologram-icon">🛡️</div>
+                        <p>CHỌN MỘT GUILD ĐỂ XEM CHI TIẾT</p>
+                    </div>
+
+                    <div class="detail-content hidden" id="detail-content">
+                        <div class="detail-header">
+                            <div class="guild-avatar-large" id="detail-avatar"></div>
+                            <div class="guild-title">
+                                <h2 id="detail-name">Tên Guild</h2>
+                                <span class="badge" id="detail-level">Lv.1</span>
+                            </div>
+                        </div>
+
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <span class="stat-label">Thành Viên</span>
+                                <span class="stat-value" id="detail-members">0/50</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-label">Xếp Hạng</span>
+                                <span class="stat-value" id="detail-rank">#0</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-label">Điểm XP</span>
+                                <span class="stat-value" id="detail-xp">0</span>
+                            </div>
+                        </div>
+
+                        <div class="description-box">
+                            <h3>THÔNG TIN MÔ TẢ</h3>
+                            <p id="detail-description">Mô tả chi tiết về Guild sẽ hiển thị ở đây.</p>
+                        </div>
+
+                        <button class="btn-primary action-btn" id="btn-join">XIN GIA NHẬP</button>
+                    </div>
+                </div>
+
+                <div class="panel list-panel">
+                    <div class="list-header">
+                        <h2>DANH SÁCH GUILD</h2>
+                        <button class="btn-primary create-btn" id="btn-create">+ TẠO GUILD</button>
+                    </div>
+
+                    <div class="search-bar">
+                        <input type="text" placeholder="Nhập tên Guild cần tìm..." />
+                    </div>
+
+                    <div class="guild-list" id="guild-list"></div>
+                </div>
+            </div>
+
+            <div class="app-container hidden" id="view-overview">
+                <div class="panel sidebar-panel">
+                    <div class="sidebar-header">
+                        <h3>Guild Overview</h3>
+                    </div>
+
+                    <div class="guild-detail">
+                        <div class="guild-emblem-container">
+                            <div class="shield-shape" id="overview-avatar"></div>
+                            <h2 id="overview-name">Tên Guild</h2>
+                            <p>Thành viên: <span id="overview-members-count">0</span></p>
+                            <!-- <div class="progress-bar-container">
+                            <div class="progress-bar" id="overview-progress-bar" style="width: 0%"></div>
+                        </div>
+                        <p style="font-size: 0.8rem; margin-top: 8px;">Cấp <span id="overview-level">0</span> (<span id="overview-xp-text">0</span>/20,000 XP)</p> -->
+                        </div>
+
+                        <div class="sidebar-menu">
+                            <button class="menu-btn">Tài sản guild</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel main-content-panel">
+                    <div class="content-header">
+                        <div>
+                            <h2>Danh sách thành viên</h2>
+                            <p class="sub-text">Quản lý và theo dõi các thành viên trong guild</p>
+                        </div>
+                    </div>
+                    <div class="status-grid">
+                        <div class="status-box border-green">
+                            <span class="status-label"><img src="../../img/icon/burger.png" class="iconGuild" /> Thức Ăn</span>
+                            <span class="status-value">87%</span>
+                        </div>
+                        <div class="status-box border-blue">
+                            <span class="status-label"><img src="../../img/icon/water-drop.png" class="iconGuild" /> Nước</span>
+                            <span class="status-value">90%</span>
+                        </div>
+                    </div>
+
+                    <div class="member-list" id="member-list-container"></div>
+                </div>
+            </div>
+        </main>
+        
+        <script src="https://kit.fontawesome.com/c4edd7a73c.js" crossorigin="anonymous"></script>
+        <script type="module" src="../../component/footer/footer.js"></script>
+        <script type="module" src="guild.js"></script>
+    </body>
+</html>

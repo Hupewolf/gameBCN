@@ -110,4 +110,10 @@ footer {
     flex-direction: column;
     align-items: flex-end;
     gap: 8px;
+    margin-bottom: 10px; /* Tạo khoảng cách ở đáy để không bị sát lề khi bỏ BattleCard */
 }
+
+/* #nav-btn-slot {
+    Bạn có thể ghi đè/chỉnh lại CSS cho nút ra thành phố ở đây
+    transition: all 0.3s ease;
+}	 */
