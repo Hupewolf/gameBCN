@@ -1,5 +1,6 @@
 import { StatBar, updateStatBar } from './StatBar.js';
 import { PhoneModal } from '../phoneModal/phonemodal.js';
+import { NotificationPanel } from '../notification/notification.js';
 const getInitials = (name) => {
 	if (!name) return "G"; 
 	const words = name.trim().split(/\s+/);
@@ -127,6 +128,11 @@ export const GameHeader = {
 			}
 			document.querySelector('.currency__add-btn')
 				?.addEventListener('click', () => {
+				});
+			document.querySelector('.notification-btn')
+				?.addEventListener('click', (e) => {
+					e.stopPropagation();
+					NotificationPanel.toggle(e.currentTarget);
 				});
 			document.querySelector('#phone-trigger-btn')
 				?.addEventListener('click', () => {
