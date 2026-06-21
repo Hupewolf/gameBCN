@@ -35,7 +35,7 @@ footer {
     padding: 8px 14px;
     border-radius: var(--radius-lg);
     background: var(--primary-background-gradient);
-    box-shadow: var(--primary-shadow-glow-sm);
+    box-shadow: var(--primary-shadow-glow-lg);
 }
 
 .game-menu-btn {

@@ -44,7 +44,7 @@ export const PhoneModal = {
 
                 <div class="phone-modal__stCard">
                     <div class="phone-modal__player">
-                        <div class="phone-modal__avatar" style="background-color: ${bgColor}; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 50%;">${initials}</div>
+                        <div class="phone-modal__avatar" style="background-color: ${bgColor}; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: bold;">${initials}</div>
                         <div class="phone-modal__info">
                             <span class="phone-modal__name">${name}</span>
                             <span class="phone-modal__level">Cấp ${level}</span>
