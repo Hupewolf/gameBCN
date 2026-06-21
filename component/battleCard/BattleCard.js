@@ -41,7 +41,7 @@ export const BattleCard = {
                     <div class="battle-card__zone">${zone}</div>
 
                     <div class="battle-card__rewards-row">
-                        <span class="battle-card__rewards-label">Phần thưởng</span>
+                        <span class="battle-card__rewards-label"><img src="../../img/icon/mdi_gift.svg"></span>
                         <span class="battle-card__reward xp-badge">XP x${xp}</span>
                         <span class="battle-card__reward">
                             <img src="../../img/icon/UCoin.svg" alt="star"> x${star}
@@ -51,7 +51,7 @@ export const BattleCard = {
 
                 <!-- Nút bắt đầu -->
                 <button class="battle-card__btn" id="battle-start-btn">
-                    BẮT ĐẦU<br>BATTLE
+                    BẮT ĐẦU<br>TRẬN ĐẤU
                 </button>
             </div>
         `;

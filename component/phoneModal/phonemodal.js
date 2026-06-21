@@ -39,10 +39,7 @@ export const PhoneModal = {
         overlay.innerHTML = `
             <div class="phone-modal" id="phone-modal">
                 <div class="phone-modal__header">
-                    <div class="phone-modal__section-label">THẺ THỢ SĂN</div>
-                    <button class="phone-modal__close-btn" id="phone-modal-close" aria-label="Đóng">
-                        <span></span><span></span><span></span>
-                    </button>
+
                 </div>
 
                 <div class="phone-modal__stCard">
@@ -60,7 +57,6 @@ export const PhoneModal = {
                     <span class="phone-modal__rank">${rank}</span>
                 </div>
 
-                <div class="phone-modal__section-label">ỨNG DỤNG</div>
                 <div class="phone-modal__app-grid" id="phone-app-grid"></div>
 
                 <div class="navigation">
@@ -123,8 +119,6 @@ export const PhoneModal = {
     },
 
     _bindEvents() {
-        document.getElementById('phone-modal-close')
-            ?.addEventListener('click', () => this.hide());
 
         document.getElementById('phone-modal-overlay')
             ?.addEventListener('click', (e) => {

@@ -3,20 +3,15 @@
 	align-items: center;
 	gap: 10px;
 	padding: 4px 8px;
-	border-radius: 12px;
-    background: linear-gradient(180deg,
-            rgba(12, 25, 70, .95),
-            rgba(4, 12, 40, .95));
-    box-shadow:
-        0 0 25px rgba(94, 125, 255, .7),
-        0 0 60px rgba(119, 66, 255, .4),
-        inset 0 0 20px rgba(120, 180, 255, .15);
-	color: #b0ffff;
-	font-size: 14px;
-	font-weight: 600;
+	border-radius: var(--radius-12);
+    background: var(--primary-background-gradient);
+    box-shadow: var(--primary-shadow-glow-sm);
+	color: var(--primary-text-color);
+	font-size: var(--font-size-xl);
+	font-weight: var(--font-weight-semibold);
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
-	transition: background 0.2s, border-color 0.2s, transform 0.15s;
+	transition: background var(--transition-base), border-color var(--transition-base), transform var(--transition-fast);
 	cursor: pointer;
 }
 
@@ -39,9 +34,9 @@
 
 .nav-btn__arrow {
 	display: flex;
-	font-size: 18px;
+	font-size: var(--font-size-4xl);
 	opacity: 0.7;
-	transition: opacity 0.2s;
+	transition: opacity var(--transition-base);
 }
 
 .nav-btn:hover .nav-btn__arrow {

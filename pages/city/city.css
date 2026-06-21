@@ -24,7 +24,7 @@ body {
     width: max(100vw, calc(100vh * 16 / 9));
     height: max(100vh, calc(100vw * 9 / 16));
     
-    background: url(../../img/background/8a4030c3-b301-4af3-830c-d561f1f1a587.png);
+    background: url(../../img/background/Background-City.svg);
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -94,9 +94,9 @@ body {
     padding: 6px 18px;
     display: flex;
     align-items: center;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 500;
+    border-radius: var(--radius-8);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
     background: rgb(15 22 51 / 72%);
     border: 1px solid rgba(130, 160, 255, 0.2);
     box-shadow: 0 4px 15px rgba(185, 232, 255, 0.427);
@@ -159,7 +159,7 @@ body {
     cursor: pointer;
     z-index: 1000;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    transition: all 0.2s ease;
+    transition: all var(--transition-base) ease;
 }
 .nav-arrow:hover {
     background: rgba(15, 25, 60, 0.95);
