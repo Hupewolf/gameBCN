@@ -1,0 +1,131 @@
+/* ==========================================================================
+   DialogueSystem — nền mờ đen toàn màn hình + hộp thoại kiểu visual novel
+   ========================================================================== */
+
+.dialogue-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    background: rgba(0, 0, 0, 0.75);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity var(--transition-medium) ease, visibility var(--transition-medium);
+}
+
+.dialogue-overlay--visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.dialogue-skip-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    padding: 8px 16px;
+    background: var(--surface-background-color);
+    border: 1px solid var(--surface-border-color);
+    border-radius: var(--radius-pill);
+    color: var(--base-text-color-muted);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    transition: background var(--transition-base), color var(--transition-base);
+}
+
+.dialogue-skip-btn:hover {
+    background: var(--surface-background-color-strong);
+    color: var(--base-text-color-light);
+}
+
+.dialogue-character-stage {
+    flex: 1;
+    width: 100%;
+    min-height: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 24px;
+}
+
+.dialogue-character-avatar {
+    max-height: 65vh;
+    max-width: 70%;
+    object-fit: contain;
+    opacity: 1;
+    transform: translateY(24px);
+    transition: opacity var(--transition-medium) ease, transform var(--transition-medium) ease;
+}
+
+.dialogue-character--fade {
+    opacity: 0 !important;
+    transform: translateY(48px) !important;
+}
+
+.dialogue-hidden {
+    display: none !important;
+}
+
+.dialogue-box {
+    position: relative;
+    width: min(720px, calc(100% - 48px));
+    margin-bottom: 28px;
+    padding: 18px 26px;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--surface-border-color);
+    border-radius: var(--radius-12);
+    cursor: pointer;
+    user-select: none;
+    transition: border-color var(--transition-base);
+}
+
+.dialogue-box:hover {
+    border-color: var(--cyan-text-color);
+}
+
+.dialogue-speaker {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--cyan-text-color);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
+}
+
+.dialogue-text {
+    font-size: var(--font-size-lg);
+    line-height: 1.5;
+    color: var(--base-text-color);
+    min-height: 44px;
+}
+
+.dialogue-next-indicator {
+    position: absolute;
+    bottom: 12px;
+    right: 20px;
+    font-size: var(--font-size-xs);
+    color: var(--cyan-text-color);
+    animation: dialogue-blink 1.2s infinite;
+}
+
+@keyframes dialogue-blink {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+@media screen and (max-width: 600px) {
+    .dialogue-character-avatar {
+        max-height: 50vh;
+        max-width: 88%;
+    }
+    .dialogue-box {
+        width: calc(100% - 24px);
+        margin-bottom: 16px;
+    }
+}
