@@ -52,6 +52,11 @@
     --dark-border-color: #415a77;
     --dark-text-color-light: #e0e1dd;
 
+    --notice-text-color: #ff3d9a;
+    --notice-background-gradient: linear-gradient(90deg, #ff2f91, #ff5fc4);
+    --notice-shadow-glow: 0 0 18px rgba(255, 61, 154, 0.5);
+    --notice-border-color: rgba(255, 61, 154, 0.4);
+
     /*xanh ngọc - login, hiệu ứng công nghệ*/
     --cyan-text-color: #00f3ff;
     --cyan-shadow-glow: 0 0 10px rgba(0, 243, 255, 0.3);

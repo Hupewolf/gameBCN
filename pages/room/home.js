@@ -1,5 +1,6 @@
 import { playerState, GameHeader } from '../../share/main.js';
 import { DialogueSystem } from '../../component/dialogueSystem/dialogue.js';
+import { PaymentNotice } from '../../component/paymentNotice/paymentNotice.js';
 
 // Không có hamburger
 GameHeader.render(playerState, { showHamburger: false });
@@ -28,7 +29,31 @@ const demoStoryLines = [
 document.getElementById('story-trigger-btn')
     ?.addEventListener('click', () => {
         DialogueSystem.play(demoStoryLines, () => {
-            console.log('Cốt truyện kết thúc');
+            // Hết cốt truyện -> hiện bảng đóng tiền nhà
+            // (sau này tái sử dụng PaymentNotice.show({...}) cho bảng đóng phạt với data khác)
+            PaymentNotice.show({
+                title: 'THÔNG BÁO ĐÓNG TIỀN NHÀ',
+                issuer: 'Đơn vị quản lý: NEXUS HOUSING CORP',
+                infoTitle: 'THÔNG TIN HOÁ ĐƠN',
+                fields: [
+                    { label: 'Mã hoá đơn', value: 'NH-2045-0091' },
+                    { label: 'Kỳ thanh toán', value: 'Tháng 06/2045' },
+                    { label: 'Địa điểm', value: 'Phòng 204, Khu Trung Tâm' },
+                    { label: 'Loại phí', value: 'Tiền nhà hàng tháng' },
+                ],
+                amountTitle: 'SỐ TIỀN CẦN ĐÓNG',
+                amount: '1.200.000 đ',
+                deadlineLabel: 'Hạn đóng tiền',
+                deadlineMs: Date.now() + 2 * 24 * 60 * 60 * 1000, // demo: hạn 2 ngày kể từ lúc hiện ra
+                secondaryText: 'XEM CHI TIẾT',
+                primaryText: 'XÁC NHẬN ĐÓNG TIỀN',
+                onPrimary: () => {
+                    console.log('Đã xác nhận đóng tiền nhà');
+                },
+                onSecondary: () => {
+                    console.log('Xem chi tiết hoá đơn tiền nhà');
+                },
+            });
         });
     });
 
@@ -47,4 +72,3 @@ openBtn.addEventListener("click", () => {
     wrapper.classList.remove("minimized");
 });
 
-Const
