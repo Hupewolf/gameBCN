@@ -322,6 +322,7 @@ export class BattleManager {
     }
 
     _flee() {
+        this.boss.reset();
         this._stopCountdown();
         document.getElementById('battle-overlay')?.classList.remove('battle-overlay--visible');
         document.getElementById('battle-end-screen')?.classList.remove('battle-end-screen--visible');
@@ -329,9 +330,15 @@ export class BattleManager {
     }
 
     forceClose() {
+        this.boss.reset();
+
         this._stopCountdown();
-        document.getElementById('battle-overlay')?.classList.remove('battle-overlay--visible');
-        document.getElementById('battle-end-screen')?.classList.remove('battle-end-screen--visible');
+
+        document.getElementById('battle-overlay')
+            ?.classList.remove('battle-overlay--visible');
+
+        document.getElementById('battle-end-screen')
+            ?.classList.remove('battle-end-screen--visible');
     }
 
     //Câu hỏi
