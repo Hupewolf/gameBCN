@@ -1,9 +1,17 @@
+// InstabilitySystem — chỉ số "Độ bất ổn" của thành phố + các điểm bất ổn
+// random xuất hiện trên bản đồ. Bấm vào 1 điểm bất ổn -> mở trận đấu trắc
+// nghiệm thật (Boss/BattleManager) chứ không còn quiz 1 câu kiểu cũ nữa.
+
+import { Boss } from '../../component/battleSystem/Boss.js';
+import { BattleManager } from '../../component/battleSystem/BattleManager.js';
+import { INCIDENT_BOSS_POOL, INSTABILITY_REWARD_PER_WIN } from '../../component/battleSystem/battleConfig.js';
+
 // chỉnh chỉ số
-const MAX_INSTABILITY = 100; //chỉ số bất ổn tối đa là 100%
-const INSTABILITY_INCREASE_INTERVAL_MS = 10_000; // số giây để độ bất ổn tăng 1%
-const SPAWN_CHECK_INTERVAL_MS = 10_000;          // số giây để hiện địa điểm bất ổn (nếu còn slot trống)
-const MAX_VISIBLE_INCIDENTS = 3;                 // số điểm tối đa điểm bất ổn xuất hiện
-const INCIDENT_DURATION_RANGE_MS = [45_000, 90_000]; // thời gian duy trì điểm bất ổn
+const MAX_INSTABILITY = 100;
+const INSTABILITY_INCREASE_INTERVAL_MS = 10_000;
+const SPAWN_CHECK_INTERVAL_MS = 10_000;
+const MAX_VISIBLE_INCIDENTS = 3;
+const INCIDENT_DURATION_RANGE_MS = [45_000, 90_000];
 
 const INCIDENT_POSITIONS = [
     { top: 30, left: 30 }, // góc trên-trái
@@ -14,39 +22,15 @@ const INCIDENT_POSITIONS = [
     { top: 60, left: 90 }, // mép phải
 ];
 
-// đáp án đúng để ở vị trí 0 xong cho nó random
-const QUIZ_BANK = [
-    {
-        question: '1+1=?',
-        options: ['2', '1', '3', '67'],
-        correct: 0,
-    },
-    {
-        question: 'Ai là người đẹp trai nhất?',
-        options: ['Nguyễn Trọng Nhân', 'Văn A', 'Văn B', 'Văn C'],
-        correct: 0,
-    },
-    {
-        question: 'bạn Lan là ai?',
-        options: ['Lan', 'không biết', 'hmm', 'ai'],
-        correct: 0,
-    },
-    {
-        question: 'chọn phương án đúng?',
-        options: ['Nhân depzai', 'trái đất hình dẹp', 'biển vị ngọt', 'anhmatemroi'],
-        correct: 0,
-    },
-];
-
 export const InstabilitySystem = {
     _value: 0,
     _incidents: new Map(),
-    _activeQuizIndex: null,
+    _activeIncidentIndex: null,
+    _currentBattle: null,
 
     init(startValue = 0) {
         this._renderPanel();
         this._renderMarkers();
-        this._renderQuizModal();
         this._setValue(startValue);
 
         setInterval(() => this._setValue(this._value + 1), INSTABILITY_INCREASE_INTERVAL_MS);
@@ -146,97 +130,67 @@ export const InstabilitySystem = {
         if (span) span.textContent = `${pad(h)}:${pad(m)}:${pad(s)}`;
     },
 
+    // Hết giờ HOẶC đánh thắng đều gọi vào đây để dọn marker đi.
+    // Nếu marker đang bị đánh (đang mở BattleManager) mà bị hết giờ giữa trận
+    // thì ép đóng trận đấu lại luôn (forceClose), tránh kẹt overlay.
     _removeIncident(index) {
         const data = this._incidents.get(index);
         if (data) clearInterval(data.intervalId);
         this._incidents.delete(index);
         document.querySelector(`.incident-marker[data-index="${index}"]`)
             ?.classList.remove('incident-marker--visible');
-    },
 
-    // Câu trắc nghiệm khi click vào điểm báo động
-    _renderQuizModal() {
-        if (document.getElementById('quiz-modal')) return;
-        const modal = document.createElement('div');
-        modal.id = 'quiz-modal';
-        modal.className = 'quiz-modal';
-        modal.innerHTML = `
-            <div class="quiz-modal__box">
-                <div class="quiz-modal__header">
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-                    <span>Sự cố bất ổn</span>
-                </div>
-                <p class="quiz-modal__question" id="quiz-question"></p>
-                <div class="quiz-modal__options" id="quiz-options"></div>
-            </div>
-        `;
-        document.body.appendChild(modal);
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) this._closeQuiz();
-        });
-    },
-
-    _onIncidentClick(index) {
-        if (!this._incidents.has(index)) return;
-        this._openQuiz(index);
-    },
-
-    _openQuiz(index) {
-        const quiz = QUIZ_BANK[Math.floor(Math.random() * QUIZ_BANK.length)];
-        const modal = document.getElementById('quiz-modal');
-        const questionEl = document.getElementById('quiz-question');
-        const optionsEl = document.getElementById('quiz-options');
-        if (!modal || !questionEl || !optionsEl) return;
-
-        // Xáo vị trí đáp án mỗi lần mở, để đáp án đúng không phải lúc nào cũng nằm cố định 1 chỗ
-        const shuffled = quiz.options
-            .map((text, i) => ({ text, isCorrect: i === quiz.correct }))
-            .sort(() => Math.random() - 0.5);
-
-        questionEl.textContent = quiz.question;
-        optionsEl.innerHTML = '';
-        shuffled.forEach(({ text, isCorrect }) => {
-            const btn = document.createElement('button');
-            btn.className = 'quiz-modal__option';
-            btn.textContent = text;
-            btn.addEventListener('click', () => this._answerQuiz(index, isCorrect, btn));
-            optionsEl.appendChild(btn);
-        });
-
-        this._activeQuizIndex = index;
-        modal.classList.add('quiz-modal--visible');
-    },
-
-    _answerQuiz(index, isCorrect, btnEl) {
-        // Khoá hết nút lại để tránh bấm nhiều lần trong lúc đang hiện kết quả
-        const optionsEl = document.getElementById('quiz-options');
-        optionsEl?.querySelectorAll('.quiz-modal__option').forEach((b) => (b.disabled = true));
-
-        if (isCorrect) {
-            // Trả lời ĐÚNG -> điểm báo động biến mất + giảm 1% độ bất ổn
-            btnEl.classList.add('quiz-modal__option--correct');
-            setTimeout(() => {
-                this._closeQuiz();
-                this._removeIncident(index);
-                this._setValue(this._value - 1);
-            }, 400);
-        } 
-        else {
-            // Trả lời SAI -> không trừ %, nhưng điểm báo động vẫn mất luôn (không cho làm lại)
-            btnEl.classList.add('quiz-modal__option--wrong');
-            setTimeout(() => {
-                this._closeQuiz();
-                this._removeIncident(index);
-            }, 500);
+        if (this._activeIncidentIndex === index) {
+            this._activeIncidentIndex = null;
+            this._currentBattle?.forceClose();
+            this._currentBattle = null;
         }
     },
 
-    _closeQuiz() {
-        const modal = document.getElementById('quiz-modal');
-        modal?.classList.remove('quiz-modal--visible');
-        document.getElementById('quiz-options')
-            ?.querySelectorAll('.quiz-modal__option')
-            .forEach((b) => (b.disabled = false));
-        this._activeQuizIndex = null;
+    // Bấm vào điểm bất ổn -> mở 1 trận đấu thật qua BattleManager
+    _onIncidentClick(index) {
+        if (!this._incidents.has(index)) return;
+        if (this._activeIncidentIndex !== null) return; // đang đánh điểm khác thì chặn, không mở chồng
+
+        this._startIncidentBattle(index);
+    },
+
+    _startIncidentBattle(index) {
+        this._activeIncidentIndex = index;
+
+        // Random 1 loại boss từ pool — mỗi điểm bất ổn có thể khác nhau
+        const cfg = INCIDENT_BOSS_POOL[Math.floor(Math.random() * INCIDENT_BOSS_POOL.length)];
+
+        const incidentBoss = new Boss(cfg.name, cfg.hp, {
+            level: cfg.level,
+            zone: 'Khu vực bất ổn',
+
+            playerDamageOnWrong: cfg.playerDamageOnWrong,
+            timeLimitMs: cfg.timeLimitMs,
+
+            color: cfg.color,
+            icon: cfg.icon,
+            image: cfg.image,
+            rewards: cfg.rewards
+        });
+        cfg.abilities?.forEach(ability => {
+            incidentBoss.addAbility(ability);
+        });
+
+        this._currentBattle = new BattleManager(incidentBoss, {
+            onEnd:  () => this._onIncidentResolved(index, true),
+            onFlee: () => this._onIncidentResolved(index, false),
+        });
+    },
+
+    _onIncidentResolved(index, won) {
+        this._activeIncidentIndex = null;
+        this._currentBattle = null;
+        this._removeIncident(index);
+
+        if (won) {
+            this._setValue(this._value - INSTABILITY_REWARD_PER_WIN);
+        }
+        // Thua/rút lui -> không trừ %, điểm bất ổn vẫn mất (không cho đánh lại y như cũ)
     },
 };

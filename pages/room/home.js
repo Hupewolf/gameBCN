@@ -12,7 +12,7 @@ const demoStoryLines = [
     {
         speaker: 'Em chủ nhà',
         text: 'Chào chồng. Em xin 50 coin tiền phòng ạ.',
-        avatar: '../../img/character/waifu_là_gì_hình_1-removebg-preview.png', // gắn ảnh nhân vật ở đây
+        avatar: '../../img/character/images-removebg-preview.png', // gắn ảnh nhân vật ở đây
     },
     {
         speaker: 'T.Nhân',
@@ -22,7 +22,7 @@ const demoStoryLines = [
     {
         speaker: 'Em chủ nhà',
         text: 'Huhu anh hong thưn em',
-        avatar: '../../img/character/waifu_là_gì_hình_1-removebg-preview.png',
+        avatar: '../../img/character/images-removebg-preview.png',
     },
 ];
 

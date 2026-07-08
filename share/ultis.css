@@ -99,6 +99,36 @@
     --radius-14: 14px;
     --radius-lg: 16px;
     --radius-pill: 99px;
+
+    /* battle */
+    --battle-accent: 220,38,38;
+    --battle-bg:
+        radial-gradient(
+            ellipse 130% 40% at 50% -5%,
+            rgba(var(--battle-accent),.28),
+            transparent
+        ),
+        rgba(5,5,13,.97);
+    --battle-card-bg:
+        linear-gradient(
+            155deg,
+            rgba(var(--battle-accent),.08),
+            rgba(5,3,8,.96) 55%
+        );
+    --battle-card-player-bg:rgba(7,7,17,.93);
+    --battle-panel:rgba(255,255,255,.05);
+    --battle-panel-soft:rgba(255,255,255,.04);
+    --battle-border:rgba(255,255,255,.08);
+    --battle-border-strong:rgba(255,255,255,.16);
+    --battle-shadow: 0 8px 40px rgba(0,0,0,.55);
+    --battle-shadow-player: 0 8px 32px rgba(0,0,0,.4);
+    --battle-accent-shadow: 0 0 18px rgba(var(--battle-accent),.3);
+    --battle-success:#4ade80;
+    --battle-danger:#f87171;
+    --battle-warning:#fbbf24;
+    --battle-text:rgba(255,255,255,.88);
+    --battle-text-light:rgba(255,255,255,.68);
+    --battle-text-muted:rgba(255,255,255,.36);
 }
 body{
     font-family: var(--Oswald);
