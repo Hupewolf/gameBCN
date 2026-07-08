@@ -24,11 +24,11 @@
     padding: 20px;
     max-width: 800px;
     width: 95%;
-    border-radius: 5px;
+    border-radius: var(--radius-5);
     cursor: default;
     background-color: #efefef;
     border: 3px solid rgb(92, 92, 92);
-    border-radius: 10px;
+    border-radius: var(--radius-md);
     z-index: 9999;
 }
 .modal-container .modal-form {
@@ -64,7 +64,7 @@
     padding: 12px 5px;
     text-align: left;
     background-color: var(--bg-default);
-    border-radius: 5px;
+    border-radius: var(--radius-5);
     border: 1px solid rgba(255, 255, 255, 0.262);
 }
 .exit-modal {
@@ -72,7 +72,7 @@
     right: 5px;
     top: 5px;
     padding: 3px !important;
-    transition: 0.3s;
+    transition: var(--transition-medium);
 }
 .boxHeader {
     display: flex;
@@ -81,6 +81,6 @@
     align-items: center;
 }
 .modal-note {
-    font-size: 14px;
-    font-weight: 500;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-medium);
 }

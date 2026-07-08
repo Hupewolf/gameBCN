@@ -33,14 +33,9 @@ footer {
     justify-content: center;
     gap: 32px;
     padding: 8px 14px;
-    border-radius: 16px;
-    background: linear-gradient(180deg,
-            rgba(12, 25, 70, .95),
-            rgba(4, 12, 40, .95));
-    box-shadow:
-        0 0 18px rgba(94, 125, 255, .7),
-        0 0 45px rgba(119, 66, 255, .4),
-        inset 0 0 15px rgba(120, 180, 255, .15);
+    border-radius: var(--radius-lg);
+    background: var(--primary-background-gradient);
+    box-shadow: var(--primary-shadow-glow-lg);
 }
 
 .game-menu-btn {
@@ -52,57 +47,57 @@ footer {
 }
 
 .bag-icon {
-    width: 30px;
-	height: 30px;
-	background-color: #85bbf7;
+    width: 24px;
+	height: 24px;
+	background-color: var(--primary-icon-color);
 	-webkit-mask: url("../../img/icon/ph_handbag-fill.svg") no-repeat center;
 	mask: url("../../img/icon/ph_handbag-fill.svg") no-repeat center;
 }
 
 .skill-icon {
-    width: 30px;
-	height: 30px;
-	background-color: #85bbf7;
+    width: 24px;
+	height: 24px;
+	background-color: var(--primary-icon-color);
 	-webkit-mask: url("../../img/icon/tdesign_share.svg") no-repeat center;
 	mask: url("../../img/icon/tdesign_share.svg") no-repeat center;
 }
 
 .mission-icon {
-    width: 30px;
-	height: 30px;
-	background-color: #85bbf7;
+    width: 24px;
+	height: 24px;
+	background-color: var(--primary-icon-color);
 	-webkit-mask: url("../../img/icon/streamline-ultimate_flag-bold.svg") no-repeat center;
 	mask: url("../../img/icon/streamline-ultimate_flag-bold.svg") no-repeat center;
 }
 
 .place-icon {
-    width: 30px;
-	height: 30px;
-	background-color: #85bbf7;
-	-webkit-mask: url("../../img/icon/stash_pin-place.svg") no-repeat center;
-	mask: url("../../img/icon/stash_pin-place.svg") no-repeat center;
+    width: 24px;
+	height: 24px;
+	background-color: var(--primary-icon-color);
+	-webkit-mask: url("../../img/icon/ic_baseline-place-phone.svg") no-repeat center;
+	mask: url("../../img/icon/ic_baseline-place-phone.svg") no-repeat center;
 }
 
 .social-icon {
-    width: 30px;
-	height: 30px;
-	background-color: #85bbf7;
+    width: 24px;
+	height: 24px;
+	background-color: var(--primary-icon-color);
 	-webkit-mask: url("../../img/icon/ion_people-sharp.svg") no-repeat center;
 	mask: url("../../img/icon/ion_people-sharp.svg") no-repeat center;
 }
 
 .cup-icon {
-    width: 30px;
-	height: 30px;
-	background-color: #85bbf7;
+    width: 24px;
+	height: 24px;
+	background-color: var(--primary-icon-color);
 	-webkit-mask: url("../../img/icon/solar_cup-star-bold.svg") no-repeat center;
 	mask: url("../../img/icon/solar_cup-star-bold.svg") no-repeat center;
 }
 
 .game-menu-text {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--color-text);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--base-text-color);
 }
 
 .footer-right-panel {

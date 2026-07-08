@@ -1,3 +1,5 @@
+import { FoodApp } from '../foodApp/foodApp.js';
+
 const getInitials = (name) => {
 	if (!name) return "G"; 
 	const words = name.trim().split(/\s+/);
@@ -37,15 +39,12 @@ export const PhoneModal = {
         overlay.innerHTML = `
             <div class="phone-modal" id="phone-modal">
                 <div class="phone-modal__header">
-                    <div class="phone-modal__section-label">THẺ THỢ SĂN</div>
-                    <button class="phone-modal__close-btn" id="phone-modal-close" aria-label="Đóng">
-                        <span></span><span></span><span></span>
-                    </button>
+
                 </div>
 
                 <div class="phone-modal__stCard">
                     <div class="phone-modal__player">
-                        <div class="phone-modal__avatar" style="background-color: ${bgColor}; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 50%;">${initials}</div>
+                        <div class="phone-modal__avatar" style="background-color: ${bgColor}; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: bold;">${initials}</div>
                         <div class="phone-modal__info">
                             <span class="phone-modal__name">${name}</span>
                             <span class="phone-modal__level">Cấp ${level}</span>
@@ -58,7 +57,6 @@ export const PhoneModal = {
                     <span class="phone-modal__rank">${rank}</span>
                 </div>
 
-                <div class="phone-modal__section-label">ỨNG DỤNG</div>
                 <div class="phone-modal__app-grid" id="phone-app-grid"></div>
 
                 <div class="navigation">
@@ -83,6 +81,7 @@ export const PhoneModal = {
                         <div class="game-menu-text-phone">Cá nhân</div>
                     </button>
                 </div>
+                <div class="phone-modal__app-view" id="phone-app-view"></div>
             </div>
         `;
 
@@ -95,7 +94,7 @@ export const PhoneModal = {
     _apps: [
         { id: 'mission',  label: 'Nhiệm vụ', icon: '../../img/icon/ri_target-fill.svg' },
         { id: 'todo',     label: 'Tủ đồ',    icon: '../../img/icon/ph_handbag-fill.svg' },
-        { id: 'shop',     label: 'Shopee',    icon: '../../img/icon/icon-park-outline_shopping.svg' },
+        { id: 'shop',     label: 'Shopuu',    icon: '../../img/icon/icon-park-outline_shopping.svg' },
         { id: 'map',      label: 'Bản đồ',   icon: '../../img/icon/stash_pin-place.svg' },
         { id: 'trophy',   label: 'Thành tích',icon: '../../img/icon/solar_cup-star-bold.svg' },
         { id: 'guild',    label: 'Bang hội',  icon: '../../img/icon/ion_people-sharp.svg' },
@@ -120,8 +119,6 @@ export const PhoneModal = {
     },
 
     _bindEvents() {
-        document.getElementById('phone-modal-close')
-            ?.addEventListener('click', () => this.hide());
 
         document.getElementById('phone-modal-overlay')
             ?.addEventListener('click', (e) => {
@@ -188,7 +185,31 @@ export const PhoneModal = {
     // },
 
     _onAppClick(appId) {
+        if (appId === 'shop') {
+            this._openApp('shop');
+            return;
+        }
         console.log('app clicked:', appId);
+    },
+
+    _openApp(appId) {
+        const view = document.getElementById('phone-app-view');
+        if (!view) return;
+
+        view.classList.add('phone-modal__app-view--active');
+
+        if (appId === 'shop') {
+            FoodApp.render('phone-app-view', {
+                onBack: () => this._closeApp(),
+            });
+        }
+    },
+
+    _closeApp() {
+        const view = document.getElementById('phone-app-view');
+        if (!view) return;
+        view.classList.remove('phone-modal__app-view--active');
+        view.innerHTML = '';
     },
 
     show() {
@@ -202,5 +223,6 @@ export const PhoneModal = {
     hide() {
         const overlay = document.getElementById('phone-modal-overlay');
         overlay?.classList.remove('phone-modal-overlay--visible');
+        this._closeApp();
     },
 };

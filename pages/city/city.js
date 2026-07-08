@@ -1,6 +1,8 @@
 import { playerState, GameHeader } from '../../share/main.js';
+import { InstabilitySystem } from './instability.js';
 
 GameHeader.render(playerState, { showHamburger: true }); // Chỉnh true/false để hiện/ẩn nút menu
+InstabilitySystem.init(85); // Độ bất ổn bắt đầu từ 0%, tự tăng dần theo thời gian
 
 document.addEventListener("DOMContentLoaded", () => {
     const scrollLeftBtn = document.getElementById("scrollLeftBtn");
