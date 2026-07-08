@@ -149,11 +149,13 @@ export const InstabilitySystem = {
 
     // Bấm vào điểm bất ổn -> mở 1 trận đấu thật qua BattleManager
     _onIncidentClick(index) {
-        if (!this._incidents.has(index)) return;
-        if (this._activeIncidentIndex !== null) return; // đang đánh điểm khác thì chặn, không mở chồng
-
-        this._startIncidentBattle(index);
-    },
+    if (!this._incidents.has(index)) return;
+    if (this._activeIncidentIndex !== null) return;
+    const data = this._incidents.get(index);
+    clearInterval(data.intervalId);
+    data.intervalId = null;
+    this._startIncidentBattle(index);
+},
 
     _startIncidentBattle(index) {
         this._activeIncidentIndex = index;
