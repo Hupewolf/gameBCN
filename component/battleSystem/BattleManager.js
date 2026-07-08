@@ -301,16 +301,16 @@ export class BattleManager {
 
     //Combo counter
     _updateComboDisplay() {
-        const el = document.getElementById('battle-combo');
-        if (!el) return;
-        if (this._combo >= 2) {
-            el.textContent = `${this._combo}× COMBO`;
-            el.className   = 'battle-combo battle-combo--active';
-            if (this._combo >= 5) el.classList.add('battle-combo--hot');
-        } else {
-            el.textContent = '';
-            el.className   = 'battle-combo';
-        }
+        // const el = document.getElementById('battle-combo');
+        // if (!el) return;
+        // if (this._combo >= 2) {
+        //     el.textContent = `${this._combo}× COMBO`;
+        //     el.className   = 'battle-combo battle-combo--active';
+        //     if (this._combo >= 5) el.classList.add('battle-combo--hot');
+        // } else {
+        //     el.textContent = '';
+        //     el.className   = 'battle-combo';
+        // }
     }
 
     //Đóng overlay
