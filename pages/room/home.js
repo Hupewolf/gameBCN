@@ -1,9 +1,13 @@
 import { playerState, GameHeader } from '../../share/main.js';
 import { DialogueSystem } from '../../component/dialogueSystem/dialogue.js';
 import { PaymentNotice } from '../../component/paymentNotice/paymentNotice.js';
+import { startStatDecay } from '../../component/header/statDecay.js';
 
 // Không có hamburger
 GameHeader.render(playerState, { showHamburger: false });
+
+// Bắt đầu giảm đói/khát theo thời gian
+startStatDecay();
 
 // ====== Demo cốt truyện ======
 // avatar để trống "" -> hộp thoại sẽ ẩn ảnh nhân vật (dùng cho lời dẫn/hệ thống)
