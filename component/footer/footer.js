@@ -32,9 +32,11 @@ footer.innerHTML = `
         </div>
         <div class="footer-right-panel">
             <div id="battle-card-slot"></div>
-            <div id="nav-btn-slot"></div>
+            
         </div>
 `;
+
+//<div id="nav-btn-slot"></div>
 const navBtnArrow = document.querySelector(".nav-btn__arrow");
 
 const isCityPage = window.location.pathname.includes("city.html");

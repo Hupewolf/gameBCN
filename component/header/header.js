@@ -47,7 +47,7 @@ export const GameHeader = {
 		el.innerHTML = `
 			<div class="header__left">
 				<div class="header__player" id="user-profile-toggle" style="position: relative; cursor: pointer;">
-					<div class="header__avatar" style="width: 48px; height: 48px; background-color: ${bgColor}; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #ffffff; font-weight: bold; font-size: 18px; flex-shrink: 0; text-transform: uppercase;">
+					<div class="header__avatar" style=" border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #ffffff; font-weight: bold; font-size: 14px; flex-shrink: 0; text-transform: uppercase;">
 						${initials}
 					</div>
 					<div class="header__info">

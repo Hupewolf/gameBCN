@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kaushan+Script&family=Michroma&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mountains+of+Christmas:wght@400;700&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 *,
 *::before,
 *::after {
@@ -9,9 +10,10 @@
 
 :root{
     --Oswald: 'Oxanium', sans-serif;
-
+    --beVietnamPro: 'Be Vietnam Pro', sans-serif;
+    --Noto-Sans: 'Noto Sans', sans-serif;
     /*Base (chữ chung toàn site)*/
-    --base-text-color: #e8e8f0;
+    --base-text-color: #292929;
     --base-text-color-muted: #ffffff84;
     --base-text-color-light: #fff;
 
@@ -24,12 +26,14 @@
     --surface-border-color-strong: rgba(255, 255, 255, 0.2);
 
     /*Primary (panel xanh navy phát sáng - header, footer, nav, mission)*/
-    --primary-background-gradient: linear-gradient(180deg, rgba(12, 25, 70, 0.95), rgba(4, 12, 40, 0.95));
-    --primary-shadow-glow-sm: 0 0 18px rgba(94, 125, 255, 0.7), 0 0 45px rgba(119, 66, 255, 0.4), inset 0 0 15px rgba(120, 180, 255, 0.15);
-    --primary-shadow-glow-lg: 0 0 25px rgba(94, 125, 255, 0.7), 0 0 60px rgba(119, 66, 255, 0.4), inset 0 0 20px rgba(120, 180, 255, 0.15);
+    --primary-background-gradient: /*linear-gradient(180deg, rgba(12, 25, 70, 0.95), rgba(4, 12, 40, 0.95))*/ #4b5f64dc; 
+    /* --primary-shadow-glow-sm: 0 0 18px rgba(94, 125, 255, 0.7), 0 0 45px rgba(119, 66, 255, 0.4), inset 0 0 15px rgba(120, 180, 255, 0.15);
+    --primary-shadow-glow-lg: 0 0 25px rgba(94, 125, 255, 0.7), 0 0 60px rgba(119, 66, 255, 0.4), inset 0 0 20px rgba(120, 180, 255, 0.15); */
+    --primary-shadow-glow-sm: inset 0px 0px 2px 2px #D5BC9D;
+    
     --primary-accent-color: #4f8ef7;
-    --primary-icon-color: #85bbf7;
-    --primary-icon-color-light: rgba(223, 244, 255, 0.9);
+    --primary-icon-color: #D5BC9D;
+    --primary-icon-color-light: #D5BC9D;
     --primary-text-color: #b0ffff;
     --primary-text-color-muted: #b0c8ff;
     --primary-border-glow-color: #5df6ff;
@@ -82,6 +86,7 @@
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
+    --font-weight-extra_bold: 800;
 
     /*Transition duration dùng nhiều nơi*/
     --transition-fast: 0.15s;
@@ -131,7 +136,7 @@
     --battle-text-muted:rgba(255,255,255,.36);
 }
 body{
-    font-family: var(--Oswald);
+    font-family: var(--beVietnamPro);
     position: relative;
 }
 .primary{

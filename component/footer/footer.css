@@ -27,15 +27,42 @@ footer {
 	justify-content: space-between;
 	align-items: flex-end;
 }
-.game-menu {
+/* .game-menu {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 32px;
-    padding: 8px 14px;
+    gap: 12px;
+    padding: 13px 24px;
     border-radius: var(--radius-lg);
-    background: var(--primary-background-gradient);
+    background-image: url(../../img/background/Nền\ elements\ 2.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     box-shadow: var(--primary-shadow-glow-lg);
+} */
+
+.game-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 13px 24px;
+    /* border-radius: var(--radius-lg); */
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.game-menu::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../../img/background/Nền elements 2.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.7;
+    z-index: -1;
 }
 
 .game-menu-btn {
@@ -96,8 +123,8 @@ footer {
 
 .game-menu-text {
     font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-semibold);
-    color: var(--base-text-color);
+    font-weight: var(--font-weight-extra_bold);
+    color: var(--base-text-color-light);
 }
 
 .footer-right-panel {

@@ -1,18 +1,28 @@
 .nav-btn {
-	display: inline-flex;
-	align-items: center;
-	gap: 10px;
-	padding: 4px 8px;
-	border-radius: var(--radius-12);
-    background: var(--primary-background-gradient);
-    box-shadow: var(--primary-shadow-glow-sm);
-	color: var(--primary-text-color);
-	font-size: var(--font-size-xl);
-	font-weight: var(--font-weight-semibold);
-	letter-spacing: 0.08em;
-	text-transform: uppercase;
-	transition: background var(--transition-base), border-color var(--transition-base), transform var(--transition-fast);
-	cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 8px 20px;
+    min-height: 52px;
+
+    /* 9-Slice */
+    border: 16px solid transparent;
+    border-image-source: url("../../img/background/Nền elements.svg");
+    border-image-slice: 16 fill;
+    border-image-repeat: stretch;
+
+    /* box-shadow: var(--primary-shadow-glow-sm); */
+
+    color: var(--base-text-color);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    transition: transform .2s ease;
 }
 
 .nav-btn:hover {
