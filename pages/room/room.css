@@ -49,7 +49,7 @@ img {
 	display: block;
 }
 
-.story-trigger-btn {
+/* .story-trigger-btn {
 	position: fixed;
 	top: 90px;
 	left: 35px;
@@ -67,6 +67,51 @@ img {
 	font-weight: var(--font-weight-semibold);
 	cursor: pointer;
 	transition: background var(--transition-base), transform var(--transition-base);
+} */
+
+.story-trigger-btn {
+    position: fixed;
+	top: 90px;
+	left: 35px;
+	z-index: 50;
+	display: grid;
+    grid-template-columns: 32px 1fr 32px;
+    width: 140px;
+    height: 52px;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.story-trigger-btn .left {
+    background: url("../../img/background/left.svg")
+        no-repeat left center;
+    background-size:100% 100%;
+} 
+
+.story-trigger-btn .center {
+    background: url("../../img/background/centerRepeat.svg")
+        repeat-x center;
+    background-size:auto 100%;
+}
+
+.story-trigger-btn .right{
+    background: url("../../img/background/right.svg")
+        no-repeat right center;
+    background-size:100% 100%;
+}
+
+.story-trigger-btn .text{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    color: var(--base-text-color);
+	font-size: var(--font-size-base);
+	font-weight: var(--font-weight-semibold);
+    z-index:2;
+    white-space:nowrap;
 }
 
 .story-trigger-btn:hover {

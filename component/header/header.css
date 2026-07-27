@@ -16,6 +16,11 @@
     align-items: center;
     gap: 12px;
     flex-shrink: 0;
+    width: 290px;
+    background-image: url(../../img/character/Profile\ card\ 1.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .header__hamburger {
@@ -51,17 +56,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 48px;
-    height: 48px;
-    border-radius: 22px;
+    width: 64px;
+    height: 64px;
+
     background: rgba(231, 77, 154, 0.95);
 }
 
 .header__avatar::before {
     content: "";
     position: absolute;
-    inset: -20px;          /* khung lớn hơn avatar */
-    background: url(../../img/background/Frame\ 297.svg) center/contain no-repeat;
+    inset: -8px;          /* khung lớn hơn avatar */
+    background-image: url(../../img/character/khung\ sơn\ thủy.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
     z-index: 5;
     pointer-events: none;
 }
@@ -98,13 +106,13 @@
 }
 
 .header__name {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-base);
     font-weight: var(--font-weight-semibold);
-    color: var(--base-text-color-muted);
+    color: var(--base-text-color);
 }
 
 .header__level {
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-xxs);
     font-family: 600;
     color: #e17cff;
 }
@@ -125,7 +133,7 @@
 }
 
 .header__xp-text {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xxs);
     color: rgb(23, 177, 238);
 }
 
@@ -172,7 +180,7 @@
 
 .stat-bar__label {
     font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-extra_bold);
+    font-weight: var(--font-weight-bold);
     color: var(--base-text-color);
     white-space: nowrap;
 }
@@ -187,7 +195,7 @@
 
 .stat-bar__value {
     font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-extra_bold);
+    font-weight: var(--font-weight-bold);
     color: var(--base-text-color);
     white-space: nowrap;
 }

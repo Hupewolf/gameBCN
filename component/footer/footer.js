@@ -5,45 +5,49 @@ import { BattleCard } from "../battleCard/BattleCard.js";
 const footer = document.getElementsByTagName("footer")[0] ?? [];
 footer.innerHTML = `
         <div class="game-menu">
-            <button class="game-menu-btn">
-                <div class="g-icon bag-icon"></div>
-                <div class="game-menu-text">Túi đồ</div>
-            </button>
-            <button class="game-menu-btn">
-                <div class="g-icon skill-icon"></div>
-                <div class="game-menu-text">Kỹ năng</div>
-            </button>
-            <button class="game-menu-btn">
-                <div class="g-icon mission-icon"></div>
-                <div class="game-menu-text">Nhiệm vụ</div>
-            </button>
-            <button class="game-menu-btn">
-                <div class="g-icon place-icon"></div>
-                <div class="game-menu-text">Bản đồ</div>
-            </button>
-            <button class="game-menu-btn">
-                <div class="g-icon social-icon"></div>
-                <div class="game-menu-text">Xã hội</div>
-            </button>
-            <button class="game-menu-btn">
-                <div class="g-icon cup-icon"></div>
-                <div class="game-menu-text">Thành tích</div>
-            </button>
+            <span class="left"></span>
+            <span class="center"></span>
+            <span class="right"></span>
+            <span class="content">
+                <button class="game-menu-btn">
+                    <div class="g-icon bag-icon"></div>
+                    <div class="game-menu-text">Túi đồ</div>
+                </button>
+                <button class="game-menu-btn">
+                    <div class="g-icon skill-icon"></div>
+                    <div class="game-menu-text">Kỹ năng</div>
+                </button>
+                <button class="game-menu-btn">
+                    <div class="g-icon mission-icon"></div>
+                    <div class="game-menu-text">Nhiệm vụ</div>
+                </button>
+                <button class="game-menu-btn">
+                    <div class="g-icon place-icon"></div>
+                    <div class="game-menu-text">Bản đồ</div>
+                </button>
+                <button class="game-menu-btn">
+                    <div class="g-icon social-icon"></div>
+                    <div class="game-menu-text">Xã hội</div>
+                </button>
+                <button class="game-menu-btn">
+                    <div class="g-icon cup-icon"></div>
+                    <div class="game-menu-text">Thành tích</div>
+                </button>
+            </span>
         </div>
         <div class="footer-right-panel">
             <div id="battle-card-slot"></div>
-            
+            <div id="nav-btn-slot"></div>
         </div>
 `;
 
-//<div id="nav-btn-slot"></div>
 const navBtnArrow = document.querySelector(".nav-btn__arrow");
 
 const isCityPage = window.location.pathname.includes("city.html");
 
 NavButton.render("nav-btn-slot", {
-    label: isCityPage ? "Quay về phòng" : "Ra thành phố",
-    icon: isCityPage ? "/img/icon/iconRoom.svg" : "/img/icon/iconCity.svg",
+    label: isCityPage ? "Quay về phòng" : "Rời khỏi phòng",
+    icon: isCityPage ? "/img/icon/iconRoom.svg" : "/img/icon/icon sơn môn.svg",
     href: isCityPage ? "../room/room.html" : "../city/city.html",
 });
 
