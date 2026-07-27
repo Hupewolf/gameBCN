@@ -12,15 +12,20 @@
 }
 
 .header__left {
+    position: relative;
+    left: 50px;
     display: flex;
     align-items: center;
     gap: 12px;
     flex-shrink: 0;
-    width: 290px;
+    width: 300px;
+    height: 136px;
     background-image: url(../../img/character/Profile\ card\ 1.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    /* transform: scale(1.5);
+    transform-origin: top left; */
 }
 
 .header__hamburger {
@@ -44,9 +49,11 @@
 }
 
 .header__player {
+    position: absolute;
+    left: -50px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
 }
 
 
@@ -56,8 +63,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 64px;
-    height: 64px;
+    width: 120px;
+    height: 120px;
 
     background: rgba(231, 77, 154, 0.95);
 }
@@ -65,7 +72,7 @@
 .header__avatar::before {
     content: "";
     position: absolute;
-    inset: -8px;          /* khung lớn hơn avatar */
+    inset: -18px;          /* khung lớn hơn avatar */
     background-image: url(../../img/character/khung\ sơn\ thủy.svg);
     background-position: center;
     background-repeat: no-repeat;

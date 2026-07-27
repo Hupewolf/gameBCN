@@ -71,7 +71,7 @@ img {
 
 .story-trigger-btn {
     position: fixed;
-	top: 90px;
+	top: 160px;
 	left: 35px;
 	z-index: 50;
 	display: grid;

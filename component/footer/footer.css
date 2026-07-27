@@ -68,9 +68,9 @@ footer {
 .game-menu {
     position: relative;
 	display: grid;
-    grid-template-columns: 40px 1fr 40px;
-    width: 460px;
-    height: 63px;
+    grid-template-columns: 44px 1fr 44px;
+    width: 500px;
+    height: 69px;
     border: none;
     background: none;
     padding: 0;
@@ -133,7 +133,7 @@ footer {
     align-items: center;
     justify-content: center;
     width: 100%;
-    gap: 24px;
+    gap: 32px;
     z-index:2;
 }
 
@@ -195,7 +195,7 @@ footer {
 
 .game-menu-text {
     font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-extra_bold);
+    font-weight: var(--font-weight-bold);
     color: var(--base-text-color-light);
 }
 

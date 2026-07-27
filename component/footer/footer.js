@@ -1,6 +1,6 @@
 import { NavButton } from "../navButton/NavButton.js";
 import { InventoryModal } from "../personalItem/personalItem.js";
-import { BattleCard } from "../battleCard/BattleCard.js";
+// import { BattleCard } from "../battleCard/BattleCard.js";
 
 const footer = document.getElementsByTagName("footer")[0] ?? [];
 footer.innerHTML = `
