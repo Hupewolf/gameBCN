@@ -1,8 +1,9 @@
 import { playerState, GameHeader } from '../../share/main.js';
-import { InstabilitySystem } from './instability.js';
+import { EventModal } from '../../component/eventModal/eventModal.js';
+// import { InstabilitySystem } from './instability.js';
 
 GameHeader.render(playerState, { showHamburger: true }); // Chỉnh true/false để hiện/ẩn nút menu
-InstabilitySystem.init(85); // Độ bất ổn bắt đầu từ 0%, tự tăng dần theo thời gian
+// InstabilitySystem.init(85); // Độ bất ổn bắt đầu từ 0%, tự tăng dần theo thời gian
 
 document.addEventListener("DOMContentLoaded", () => {
     const scrollLeftBtn = document.getElementById("scrollLeftBtn");
@@ -50,4 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
             window.scrollBy({ left: scrollAmount, behavior: "smooth" });
         });
     }
+    document.querySelector(".event.blockMarker")?.addEventListener("click", () => {
+        EventModal.show();
+    });
 });

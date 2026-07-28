@@ -12,10 +12,21 @@
 }
 
 .header__left {
+    position: relative;
+    left: 50px;
     display: flex;
     align-items: center;
     gap: 12px;
     flex-shrink: 0;
+    --scale: 8/3;
+    width: calc(90px * var(--scale));
+    height: calc(41px * var(--scale));
+    background-image: url(../../img/character/Profile\ card\ 1.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* transform: scale(1.5);
+    transform-origin: top left; */
 }
 
 .header__hamburger {
@@ -39,10 +50,13 @@
 }
 
 .header__player {
+    position: absolute;
+    left: -50px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
 }
+
 
 .header__avatar {
     position: relative;
@@ -50,21 +64,31 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 48px;
-    height: 48px;
-    border-radius: 22px;
-    background: var(--primary-background-gradient);
-    box-shadow: var(--primary-shadow-glow-lg);
+    width: 90px;
+    height: 90px;
+
+    background: rgba(231, 77, 154, 0.95);
 }
 
 .header__avatar::before {
     content: "";
     position: absolute;
+    inset: -13px;          /* khung lớn hơn avatar */
+    background-image: url(../../img/character/khung\ sơn\ thủy.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 5;
+    pointer-events: none;
+}
+/* .header__avatar::before {
+    content: "";
+    position: absolute;
     inset: -2px;
     border-radius: 50%;
-    background: conic-gradient(from 0deg, #cc73ff, transparent, transparent, #c39eff);
-    animation: borderRotate 2s linear infinite;
-    z-index: -2;
+    background: url(../../img/background/Frame\ 297.svg);
+    animation: borderRotate 2s linear infinite; 
+    z-index: 2;
 }
 
 .header__avatar::after {
@@ -74,7 +98,7 @@
     border-radius: 50%;
     background: rgba(8, 18, 60, 0.95);
     z-index: -1;
-}
+} */
 
 .header__avatar img {
     width: 32px;
@@ -90,13 +114,13 @@
 }
 
 .header__name {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-base);
     font-weight: var(--font-weight-semibold);
     color: var(--base-text-color);
 }
 
 .header__level {
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-xxs);
     font-family: 600;
     color: #e17cff;
 }
@@ -117,7 +141,7 @@
 }
 
 .header__xp-text {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xxs);
     color: rgb(23, 177, 238);
 }
 
@@ -125,12 +149,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 36px;
+    gap: 12px;
     height: fit-content;
-    padding: 0 10px;
-    border-radius: var(--radius-md);
-    background: var(--primary-background-gradient);
-    box-shadow: var(--primary-shadow-glow-lg);
+    padding: 6px 12px;
+    /* border-radius: var(--radius-md); */
+    background-image: url(../../img/background/Nền\ elements.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* box-shadow: var(--primary-shadow-glow-lg); */
 }
 
 .stat-bar {
@@ -161,8 +188,8 @@
 
 .stat-bar__label {
     font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-semibold);
-    color: var(--base-text-color-muted);
+    font-weight: var(--font-weight-bold);
+    color: var(--base-text-color);
     white-space: nowrap;
 }
 
@@ -190,7 +217,7 @@
 .notification-btn {
 	width: 34px;
     height: 34px;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-pill);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -210,13 +237,16 @@
     height: fit-content;
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 12px;
     flex-shrink: 0;
-    background: var(--primary-background-gradient);
-    box-shadow: var(--primary-shadow-glow-lg);
+    background-image: url(../../img/background/Nền\ elements.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* box-shadow: var(--primary-shadow-glow-lg); */
     color: var(--base-text-color);
     border-radius: var(--radius-md);
-    padding: 5px 12px;
+    padding: 5px 20px;
 }
 
 .currency-item {
@@ -241,7 +271,7 @@
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background: rgba(50, 77, 177, 0.541);
+    background: #4b5f64dc;
     color: #fff;
     font-size: var(--font-size-3xl);
     line-height: 1;
@@ -268,7 +298,7 @@
 .phone-trigger-btn {
     width: 34px;
     height: 34px;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-pill);
     display: flex;
     align-items: center;
     justify-content: center;

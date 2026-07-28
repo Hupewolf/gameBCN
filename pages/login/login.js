@@ -1,6 +1,6 @@
 async function authenticateUser(mssv, password) {
     try {
-        const response = await fetch("https://6a106463d2a985707036bbf0.mockapi.io/accounts/examess");
+        const response = await fetch("https://6a53c0628547b9f7111bc89e.mockapi.io/accounts/test/testManage");
         if (!response.ok) throw new Error("Lỗi mạng khi tải API");
         const users = await response.json();
         console.log("Users from API:", users);

@@ -210,7 +210,7 @@ export const InventoryModal = {
 
                     // 4. Gọi API PUT để lưu trạng thái mới lên server
                     try {
-                        await fetch(`https://6a106463d2a985707036bbf0.mockapi.io/accounts/examess/${userData.id}`, {
+                        await fetch(`https://6a53c0628547b9f7111bc89e.mockapi.io/accounts/test/testManage/${userData.id}`, {
                             method: 'PUT',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(userData)
@@ -259,7 +259,7 @@ export const InventoryModal = {
                     slot.innerHTML = `<span style="color:#f44336; font-size: 11px; display:flex; justify-content:center; align-items:center; height:100%; text-align:center;">Đang xóa...</span>`;
 
                     try {
-                        await fetch(`https://6a106463d2a985707036bbf0.mockapi.io/accounts/examess/${userData.id}`, {
+                        await fetch(`https://6a53c0628547b9f7111bc89e.mockapi.io/accounts/test/testManage/${userData.id}`, {
                             method: 'PUT',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(userData)

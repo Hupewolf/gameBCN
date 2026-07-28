@@ -13,7 +13,7 @@
     cursor: pointer;
     width: 48px;
     height: 48px;
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-pill);
     display: flex;
     align-items: center;
     justify-content: center;

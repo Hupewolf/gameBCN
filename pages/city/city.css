@@ -24,12 +24,12 @@ body {
     width: max(100vw, calc(100vh * 16 / 9));
     height: max(100vh, calc(100vw * 9 / 16));
     
-    background: url(../../img/background/Background-City.svg);
+    background: url(../../img/background/outSide-bg.png);
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
 }
-.map::before {
+/* .map::before {
     content: "";
     position: absolute;
     inset: -1px;    
@@ -40,7 +40,7 @@ body {
         rgba(0, 0, 0, 0.074)
     );
     z-index: 0;
-}
+} */
 .blockMarker {
     position: absolute;
     width: fit-content;
@@ -126,17 +126,17 @@ body {
     top: 45%;
     left: 51%;
 }
-.center {
+/* .center {
     top: 56%;
     left: 58%;
-}
+} */
 .school {
     top: 23%;
     left: 61%;
 }
 .event {
-    top: 49%;
-    left: 80%;
+    top: 45%;
+    left: 91%;
 }
 .shop {
     top: 68%;
@@ -201,7 +201,7 @@ body {
 /*ĐỘ BẤT ỔN*/
 .instability-panel {
     position: fixed;
-    top: 100px;
+    top: 150px;
     left: 35px;
     width: 220px;
     padding: 10px 14px;
