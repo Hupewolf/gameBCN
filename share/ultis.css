@@ -70,6 +70,9 @@
     --overlay-background-color: rgba(0, 0, 0, 0.55);
     --overlay-background-color-strong: rgba(0, 0, 0, 0.7);
 
+    --overlay-background-color-light: rgba(255, 255, 255, 0.4);
+    --overlay-blur-amount: 8px;
+
     /*Font size (cỡ chữ dùng nhiều nơi, từ nhỏ -> lớn)*/
     --font-size-xxs: 8px;
     --font-size-xs: 9px;
@@ -143,4 +146,27 @@ body{
     height: fit-content;
     width: fit-content;
     padding: 6px 20px !important;
+}
+
+.frost-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    pointer-events: none;
+    transition:
+        background var(--transition-medium) ease,
+        backdrop-filter var(--transition-medium) ease;
+}
+
+.frost-overlay.frost-overlay--visible {
+    background: var(--overlay-background-color-light);
+    backdrop-filter: blur(var(--overlay-blur-amount));
+    -webkit-backdrop-filter: blur(var(--overlay-blur-amount));
+    pointer-events: auto;
 }

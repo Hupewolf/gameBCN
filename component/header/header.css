@@ -18,8 +18,9 @@
     align-items: center;
     gap: 12px;
     flex-shrink: 0;
-    width: 240px;
-    height: 109px;
+    --scale: 8/3;
+    width: calc(90px * var(--scale));
+    height: calc(41px * var(--scale));
     background-image: url(../../img/character/Profile\ card\ 1.svg);
     background-position: center;
     background-repeat: no-repeat;
