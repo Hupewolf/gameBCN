@@ -18,8 +18,8 @@
     align-items: center;
     gap: 12px;
     flex-shrink: 0;
-    width: 300px;
-    height: 136px;
+    width: 240px;
+    height: 109px;
     background-image: url(../../img/character/Profile\ card\ 1.svg);
     background-position: center;
     background-repeat: no-repeat;
@@ -63,8 +63,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 120px;
-    height: 120px;
+    width: 90px;
+    height: 90px;
 
     background: rgba(231, 77, 154, 0.95);
 }
@@ -72,7 +72,7 @@
 .header__avatar::before {
     content: "";
     position: absolute;
-    inset: -18px;          /* khung lớn hơn avatar */
+    inset: -13px;          /* khung lớn hơn avatar */
     background-image: url(../../img/character/khung\ sơn\ thủy.svg);
     background-position: center;
     background-repeat: no-repeat;
