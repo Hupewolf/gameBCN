@@ -6,7 +6,7 @@ export const INSTABILITY_REWARD_PER_WIN = 1;
 
 // color  : giá trị RGB (không có #) dùng trong CSS rgba(var(--battle-accent), opacity)
 // icon   : Font Awesome class — thay icon skull mặc định
-import { GlitchEffect } from './abilities.js';
+
 
 export const INCIDENT_BOSS_POOL = [
     // {
@@ -33,8 +33,5 @@ export const INCIDENT_BOSS_POOL = [
         timeLimitMs: 10_000,
         color: '192, 38, 211',      // purple
         icon:  'fa-bolt',
-        abilities: [
-            new GlitchEffect(0.5)
-        ]
     },
 ];

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Boss Tuần</title>
+        <link rel="stylesheet" href="../../share/ultis.css" />
+        <link rel="stylesheet" href="../../component/battleSystem/battleSystem.css">
+        <link rel="stylesheet" href="bossWeek.css" />
+    </head>
+    <body>
+        <header id="game-header"></header>
+
+        <div class="map">
+            <!-- Nút back: đứng riêng, KHÔNG nằm trong header -->
+            <button class="bw-back-btn" id="bw-back-btn" aria-label="Quay lại thành">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Trở về</span>
+            </button>
+            <main class="bw-page">
+                <!-- CỘT TRÁI: boss + trắc nghiệm -->
+                <section class="bw-left" id="battle-overlay">
+                    <div class="bw-boss-card">
+                        <span class="bw-boss-name" id="bw-boss-name"></span>
+                    </div>
+
+                    <!-- Hiệu ứng thanh máu boss (từ battleSystem), tách riêng khỏi thẻ boss.
+                         Boss tuần máu vô hạn nên đây chỉ là hiệu ứng, không phải máu thật.
+                         Đổi top/left/right/bottom của .bw-boss-hp-float trong bossWeek.css để tuỳ ý di chuyển vị trí. -->
+                    <div class="bw-boss-hp-float" id="bw-boss-hp-float">
+                        <div class="battle-boss-hpbar bw-boss-hp-float__bar">
+                            <div class="battle-boss-hpfill" id="bw-boss-hpfill"></div>
+                            <div class="battle-boss-hpsegments"></div>
+                        </div>
+                        <span class="battle-boss-hptext bw-boss-hp-float__text" id="bw-boss-hptext">∞</span>
+                    </div>
+
+                    <div class="bw-player-card" id="bw-player-card">
+                        <div class="bw-player-hprow">
+                            <i class="fa-solid fa-heart bw-player-heart"></i>
+                            <div class="bw-player-hpbar">
+                                <div class="bw-player-hpfill" id="bw-player-hpfill"></div>
+                            </div>
+                            <span class="bw-player-hptext" id="bw-player-hptext"></span>
+                        </div>
+                        <div class="bw-quiz" id="bw-quiz">
+                            <div class="bw-quiz-timerrow">
+                                <div class="bw-quiz-timer-bar" id="bw-quiz-timer-bar"></div>
+                                <span class="bw-quiz-timer-text" id="bw-quiz-timer-text">10</span>
+                            </div>
+                            <p class="bw-quiz-question" id="bw-quiz-question"></p>
+                            <div class="bw-quiz-choices" id="bw-quiz-choices"></div>
+                        </div>
+                        <div class="bw-end-screen" id="bw-end-screen">
+                            <div class="bw-end-title" id="bw-end-title"></div>
+                            <div class="bw-end-subtitle" id="bw-end-subtitle"></div>
+                            <button class="bw-end-btn" id="bw-end-btn">Đánh tiếp</button>
+                        </div>
+                    </div>
+                </section>
+                <!-- CỘT PHẢI: phần thưởng + bảng xếp hạng -->
+                <aside class="bw-right">
+                    <div class="bw-panel">
+                        <div class="bw-panel__title">Phần Thưởng</div>
+                        <div class="bw-rewards" id="bw-rewards"></div>
+                    </div>
+                    <div class="bw-panel bw-panel--grow">
+                        <div class="bw-panel__title">Bảng Xếp Hạng Sát Thương</div>
+                        <div class="bw-leaderboard" id="bw-leaderboard"></div>
+                    </div>
+                    <div class="bw-panel bw-panel--rules">
+                        <div class="bw-panel__title">Quy Tắc</div>
+                        <ul class="bw-rules">
+                            <li>Gây sát thương lên boss để nhận thưởng</li>
+                            <li>Sát thương càng cao, phần thưởng càng lớn</li>
+                        </ul>
+                        <div class="bw-endtime">
+                            <span class="bw-endtime__label">Thời Gian Kết Thúc</span>
+                            <span class="bw-endtime__value" id="bw-endtime-value">--</span>
+                        </div>
+                    </div>
+                </aside>
+            </main>
+        </div>
+
+        <footer></footer>
+        <script src="https://kit.fontawesome.com/c4edd7a73c.js" crossorigin="anonymous"></script>
+        <script type="module" src="./bossWeek.js"></script>
+    </body>
+</html>

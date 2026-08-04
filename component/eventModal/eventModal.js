@@ -1,12 +1,14 @@
 const $ = (id) => document.getElementById(id);
 
-
-// active: true  -> có thể tham gia (hiện màu, đẩy lên đầu danh sách)
-// active: false -> chưa mở/khoá   (hiện xám, đẩy xuống cuối danh sách, không click được)
-// deadlineMs  : dùng cho item active -> đếm ngược "Thời gian còn lại"
-// requirement : dùng cho item khoá   -> điều kiện mở khoá, hiện ở badge
-// timeText    : dùng cho item khoá   -> khung giờ diễn ra hoạt động
-
+/**
+ * Dữ liệu hoạt động mẫu.
+ * active: true  -> có thể tham gia (hiện màu, đẩy lên đầu danh sách)
+ * active: false -> chưa mở/khoá   (hiện xám, đẩy xuống cuối danh sách, không click được)
+ *
+ * deadlineMs  : dùng cho item active -> đếm ngược "Thời gian còn lại"
+ * requirement : dùng cho item khoá   -> điều kiện mở khoá, hiện ở badge
+ * timeText    : dùng cho item khoá   -> khung giờ diễn ra hoạt động
+ */
 const ACTIVITIES = [
     {
         id: 'tu-luyen',
@@ -24,7 +26,7 @@ const ACTIVITIES = [
         desc: 'Khiêu chiến boss để nhận trang bị và vật phẩm phẩm hiếm',
         active: true,
         deadlineMs: Date.now() + (45 * 60 + 12) * 1000,
-        onJoin: () => console.log('Tham gia: Khiêu Chiến Boss'),
+        onJoin: () => { window.location.href = '../bossWeek/bossWeek.html'; },
     },
     {
         id: 'tong-mon-nhiem-vu',
@@ -96,12 +98,13 @@ export const EventModal = {
         this._renderList();
     },
 
-    
-    // - active -> lên đầu danh sách, có màu, click được
-    // - !active -> xuống cuối danh sách, xám, không click được
-    // Array.prototype.sort ổn định (stable) nên các item cùng nhóm giữ nguyên
-    // thứ tự khai báo trong ACTIVITIES.
-    
+    /**
+     * === CƠ CHẾ TÁI SỬ DỤNG (dùng lại cho mọi list hoạt động khác) ===
+     * - active -> lên đầu danh sách, có màu, click được
+     * - !active -> xuống cuối danh sách, xám, không click được
+     * Array.prototype.sort ổn định (stable) nên các item cùng nhóm giữ nguyên
+     * thứ tự khai báo trong ACTIVITIES.
+     */
     _renderList() {
         this._clearTimers();
 
