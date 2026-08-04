@@ -127,9 +127,24 @@ const BossWeekPage = {
 
     _onBossDamage(e) {
         this._pulseBossHp();
+        this._spawnFloatingDamage(e.detail.amount);
         this._myDamage += e.detail.amount;
         this._updateMyLeaderboardRow();
         this._saveDamage(e.detail.amount);
+    },
+
+    // Số sát thương bay lên + mờ dần mỗi khi đánh trúng boss (đọc trong .bw-dmg-layer)
+    _spawnFloatingDamage(amount) {
+        const layer = $('bw-dmg-layer');
+        if (!layer) return;
+
+        const el = document.createElement('span');
+        el.className = 'bw-dmg-text';
+        el.textContent = `-${amount}`;
+        el.style.setProperty('--bw-dmg-x', `${Math.round((Math.random() - 0.5) * 70)}px`);
+
+        el.addEventListener('animationend', () => el.remove(), { once: true });
+        layer.appendChild(el);
     },
 
     _onAbilityToggle(ability, isActive) {

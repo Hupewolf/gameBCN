@@ -155,6 +155,47 @@ body {
     100% { filter: brightness(1); }
 }
 
+/* ===== Floating Damage Text — số sát thương bay lên khi đánh trúng boss ===== */
+.bw-dmg-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 20;
+    overflow: visible;
+}
+
+.bw-dmg-text {
+    position: absolute;
+    --bw-dmg-x: 0px;
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-extra_bold);
+    color: #ffd93d;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5), 0 0 12px rgba(255, 217, 61, 0.6);
+    white-space: nowrap;
+    animation: bw-dmg-float 0.9s ease-out forwards;
+}
+
+@keyframes bw-dmg-float {
+    0% {
+        transform: translate(0, 0) scale(0.6);
+        opacity: 0;
+    }
+    15% {
+        transform: translate(calc(var(--bw-dmg-x) * 0.3), -10px) scale(1.15);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--bw-dmg-x), -70px) scale(1);
+        opacity: 0;
+    }
+}
+
 /* ===== Player + quiz card ===== */
 .bw-player-card {
     min-height: 0;
