@@ -169,6 +169,14 @@ footer {
 	mask: url("../../img/icon/streamline-ultimate_flag-bold.svg") no-repeat center;
 }
 
+.realm-icon {
+    width: 24px;
+	height: 24px;
+	background-color: var(--primary-icon-color);
+	-webkit-mask: url("../../img/icon/pagoda-realm.svg") no-repeat center;
+	mask: url("../../img/icon/pagoda-realm.svg") no-repeat center;
+}
+
 .place-icon {
     width: 24px;
 	height: 24px;
