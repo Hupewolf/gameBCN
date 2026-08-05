@@ -69,7 +69,7 @@ footer {
     position: relative;
 	display: grid;
     grid-template-columns: 44px 1fr 44px;
-    width: 700px;
+    width: 550px;
     height: 69px;
     border: none;
     background: none;

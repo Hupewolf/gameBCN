@@ -18,17 +18,9 @@ footer.innerHTML = `
                     <div class="game-menu-text">Kỹ năng</div>
                 </button>
 
-                <button class="game-menu-btn">
-                    <div class="g-icon skill-icon"></div>
-                    <div class="game-menu-text">Kỹ năng</div>
-                </button>
                 <button class="game-menu-btn" id="realm-btn">
                     <div class="g-icon realm-icon"></div>
                     <div class="game-menu-text">Cảnh giới</div>
-                </button>
-                <button class="game-menu-btn">
-                    <div class="g-icon mission-icon"></div>
-                    <div class="game-menu-text">Nhiệm vụ</div>
                 </button>
 
                 <button class="game-menu-btn">
